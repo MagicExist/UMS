@@ -1,15 +1,18 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!--#region Colors keys  -->
+    <!--#region UI Colors keys  -->
     <SolidColorBrush x:Key="background" Color="#282A36"/>
     <SolidColorBrush x:Key="primary" Color="#44475A"/>
     <SolidColorBrush x:Key="second" Color="#4286A2"/>
+    <SolidColorBrush x:Key="third" Color="#17181E"/>
+    <SolidColorBrush x:Key="topbar" Color="#17181E"/>
     <SolidColorBrush x:Key="text" Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="dark" Color="#17181E"/>
-    <SolidColorBrush x:Key="light-dark" Color="#1B1C22"/>
-    <SolidColorBrush x:Key="red" Color="#B85C5C"/>
-    <SolidColorBrush x:Key="dark-red" Color="#954C4C"/>
-    <SolidColorBrush x:Key="gren" Color="#5CB85C"/>
-    <SolidColorBrush x:Key="dark-green" Color="#498E49"/>
     <!--#endregion-->
+
+    <!--#region Controls Colors keys  -->
+    <SolidColorBrush x:Key="generic-button" Color="#5CB85C"/>
+    <SolidColorBrush x:Key="cancel-button" Color="#B85C5C"/>
+    <SolidColorBrush x:Key="accept-button" Color="#5CB85C"/>
+    <!--#endregion-->
+
 </ResourceDictionary>
