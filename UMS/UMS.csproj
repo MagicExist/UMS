@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\Images\campus.jpg" />
     <Resource Include="Resources\Images\icon_password.png" />
   </ItemGroup>
