@@ -2,13 +2,21 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style TargetType="PasswordBox">
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="../images/icon_password.png"
+                            Stretch="None"
+                            AlignmentX="Left"
+                            Opacity="0.8"/>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Foreground" Value="{StaticResource text}"/>
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="CaretBrush" Value="{StaticResource text}"/>
+        <Setter Property="FontSize" Value="24"/>
         <Setter Property="BorderBrush" Value="{StaticResource second}"/>
         <Setter Property="BorderThickness" Value="0 0 0 3"/>
         <Setter Property="Margin" Value="5"/>
-        <Setter Property="Padding" Value="2"/>
+        <Setter Property="Padding" Value="40 0 0 0"/>
     </Style>
 
 
@@ -18,26 +26,27 @@
                 <ControlTemplate TargetType="{x:Type TextBoxBase}">
                     <Grid>
                         <TextBox 
-                            Width="250"
+                            Width="300"
                             Background="Transparent" 
                             Foreground="{StaticResource text}"
                             FontSize="14"
+                            FontWeight="SemiBold"
                             BorderBrush="{StaticResource second}" 
                             BorderThickness="0 0 0 3"
                             VerticalAlignment="Center" 
                             HorizontalAlignment="Left" 
                             x:Name="WatermarkTextBox" 
-                            Margin="5"
-                            Padding="2"/>
+                            Padding="2"
+                            CaretBrush="{StaticResource text}"/>
 
                         <TextBlock IsHitTestVisible="False" 
                                    Text="{TemplateBinding Property=Name}" 
                                    FontSize="14"
+                                   FontWeight="SemiBold"
                                    VerticalAlignment="Center" 
                                    HorizontalAlignment="Left" 
                                    Foreground="{StaticResource text}"
                                    Opacity="0.8"
-                                   Margin="5"
                                    Padding="2">
 
                             <TextBlock.Style>
@@ -57,5 +66,57 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="label-texbox" TargetType="TextBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" BorderBrush="{StaticResource second}" BorderThickness="0 0 0 3">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Grid.Column="0" 
+                                           Text="{TemplateBinding Property=Name}"
+                                           FontSize="20"
+                                           FontWeight="SemiBold"
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Left" 
+                                           Foreground="{StaticResource text}"
+                                           Opacity="0.8"/>
+
+                                <TextBlock Grid.Column="1" 
+                                           Text=":"
+                                           FontSize="20"
+                                           FontWeight="SemiBold"
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Left" 
+                                           Foreground="{StaticResource text}"
+                                           Opacity="0.8"
+                                           Padding="2 0 0 0"/>
+                            </StackPanel>
+                        </Border>
+
+                        <TextBox Grid.Column="1"
+                                 Background="Transparent" 
+                                 Foreground="{StaticResource text}"
+                                 FontSize="20"
+                                 FontWeight="SemiBold"
+                                 BorderBrush="{StaticResource second}" 
+                                 BorderThickness="0 0 0 3"
+                                 CaretBrush="{StaticResource text}"
+                                 Padding="5 0 0 0"/>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
 
 </ResourceDictionary>

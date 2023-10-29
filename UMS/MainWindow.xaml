@@ -3,10 +3,57 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UMS"
+        xmlns:local="clr-namespace:UMS" 
+        xmlns:Views="clr-namespace:UMS.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        Height="640" 
+        Width="1024"
+        ResizeMode="CanMinimize"
+        Background="{StaticResource background}"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None">
+    
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <DockPanel Name="topbar" 
+                   MouseDown="topbar_MouseDown"
+                   Grid.Row="0" 
+                   LastChildFill="False" 
+                   Background="{StaticResource topbar}">
+
+            <Button Name="btn_logout" 
+                    Content="logout"
+                    Style="{StaticResource transparent-Button}"
+                    Width="auto" 
+                    Height="auto" 
+                    Visibility="hidden" 
+                    DockPanel.Dock="Left"/>
+
+            <Button Name="btn_Close" 
+                    Content="X"
+                    Click="CloseButton_Click" 
+                    Style="{StaticResource transparent-Button}"
+                    Width="35"
+                    DockPanel.Dock="Right"/>
+
+            <Button Name="btn_Minimize" 
+                    Content="-"
+                    Click="minimizeButton_Click"
+                    Style="{StaticResource transparent-Button}"
+                    Width="35" 
+                    FontSize="25"
+                    Height="auto" 
+                    DockPanel.Dock="Right"/>
+            
+        </DockPanel>
+
+        <Grid Grid.Row="1">
+            <Views:Login/>
+        </Grid>
     </Grid>
 </Window>

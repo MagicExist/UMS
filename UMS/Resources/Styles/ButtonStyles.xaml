@@ -2,15 +2,19 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
+    <!-- this button style is specifically for the topbar and you do not have to specify the background -->
     <Style x:Key="transparent-Button" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource text}"/>
-        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="FontSize" Value="13"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <ContentPresenter HorizontalAlignment="Center" 
+                                          VerticalAlignment="Center" 
+                                          Margin="5 0"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -23,13 +27,13 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
-    
-    
-    <!-- this button -->
+
+
+
+    <!-- this button style is generic and you have to specify the background when using it -->
     <Style x:Key="Text-Button" TargetType="Button">
         <Setter Property="Foreground" Value="{StaticResource text}"/>
-        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
