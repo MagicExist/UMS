@@ -56,8 +56,8 @@
             
         </DockPanel>
 
-        <Grid Grid.Row="1">
-            <Views:Login/>
-        </Grid>
+        <ContentControl Grid.Row="1" Content="{Binding currentView}">
+            
+        </ContentControl>
     </Grid>
 </Window>
