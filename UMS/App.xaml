@@ -15,6 +15,9 @@
             <DataTemplate DataType="{x:Type ViewsModels:DashBoardStudentVM}">
                 <Views:DashBoardStudenView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewsModels:LoginVM}">
+                <Views:Login/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
