@@ -26,7 +26,7 @@
                    LastChildFill="False" 
                    Background="{StaticResource topbar}">
 
-            <Button Name="logout" 
+            <Button Name="btn_logout" 
                     Content="logout"
                     Style="{StaticResource transparent-Button}"
                     Width="auto" 
@@ -34,14 +34,14 @@
                     Visibility="hidden" 
                     DockPanel.Dock="Left"/>
 
-            <Button Name="CloseButton" 
+            <Button Name="btn_Close" 
                     Content="X"
                     Click="CloseButton_Click" 
                     Style="{StaticResource transparent-Button}"
                     Width="35"
                     DockPanel.Dock="Right"/>
 
-            <Button Name="minimizeButton" 
+            <Button Name="btn_Minimize" 
                     Content="-"
                     Click="minimizeButton_Click"
                     Style="{StaticResource transparent-Button}"
