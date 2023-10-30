@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="Resources/styles/Colors.xaml"/>
                 <ResourceDictionary Source="Resources/styles/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="Resources/styles/TextBoxStyles.xaml"/>
+                <ResourceDictionary Source="Resources/styles/LabelStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type ViewsModels:DashBoardStudentVM}">
                 <Views:DashBoardStudenView/>

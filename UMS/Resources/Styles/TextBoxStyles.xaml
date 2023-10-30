@@ -19,104 +19,13 @@
         <Setter Property="Padding" Value="40 0 0 0"/>
     </Style>
 
-
-    <Style x:Key="watermark-texbox" TargetType="TextBox">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBoxBase}">
-                    <Grid>
-                        <TextBox 
-                            Width="300"
-                            Background="Transparent" 
-                            Foreground="{StaticResource text}"
-                            FontSize="14"
-                            FontWeight="SemiBold"
-                            BorderBrush="{StaticResource second}" 
-                            BorderThickness="0 0 0 3"
-                            VerticalAlignment="Center" 
-                            HorizontalAlignment="Left" 
-                            x:Name="WatermarkTextBox" 
-                            Padding="2"
-                            CaretBrush="{StaticResource text}"/>
-
-                        <TextBlock IsHitTestVisible="False" 
-                                   Text="{TemplateBinding Property=Name}" 
-                                   FontSize="14"
-                                   FontWeight="SemiBold"
-                                   VerticalAlignment="Center" 
-                                   HorizontalAlignment="Left" 
-                                   Foreground="{StaticResource text}"
-                                   Opacity="0.8"
-                                   Padding="2">
-
-                            <TextBlock.Style>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="Visibility" Value="Collapsed"/>
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding Text, ElementName=WatermarkTextBox}" Value="">
-                                            <Setter Property="Visibility" Value="Visible"/>
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </TextBlock.Style>
-
-                        </TextBlock>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource text}"/>
+        <Setter Property="CaretBrush" Value="{StaticResource text}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="BorderBrush" Value="{StaticResource second}"/>
+        <Setter Property="BorderThickness" Value="0 0 0 3"/>
     </Style>
-
-    <Style x:Key="label-texbox" TargetType="TextBox">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TextBoxBase}">
-                    <Grid>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Border Grid.Column="0" BorderBrush="{StaticResource second}" BorderThickness="0 0 0 3">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Grid.Column="0" 
-                                           Text="{TemplateBinding Property=Name}"
-                                           FontSize="20"
-                                           FontWeight="SemiBold"
-                                           VerticalAlignment="Center" 
-                                           HorizontalAlignment="Left" 
-                                           Foreground="{StaticResource text}"
-                                           Opacity="0.8"/>
-
-                                <TextBlock Grid.Column="1" 
-                                           Text=":"
-                                           FontSize="20"
-                                           FontWeight="SemiBold"
-                                           VerticalAlignment="Center" 
-                                           HorizontalAlignment="Left" 
-                                           Foreground="{StaticResource text}"
-                                           Opacity="0.8"
-                                           Padding="2 0 0 0"/>
-                            </StackPanel>
-                        </Border>
-
-                        <TextBox Grid.Column="1"
-                                 Background="Transparent" 
-                                 Foreground="{StaticResource text}"
-                                 FontSize="20"
-                                 FontWeight="SemiBold"
-                                 BorderBrush="{StaticResource second}" 
-                                 BorderThickness="0 0 0 3"
-                                 CaretBrush="{StaticResource text}"
-                                 Padding="5 0 0 0"/>
-
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-
 
 </ResourceDictionary>
