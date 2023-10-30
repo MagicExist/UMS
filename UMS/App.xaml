@@ -1,6 +1,8 @@
 ﻿<Application x:Class="UMS.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Views="clr-namespace:UMS.Views"
+             xmlns:ViewsModels="clr-namespace:UMS.ViewModels"
              xmlns:local="clr-namespace:UMS"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
@@ -10,6 +12,12 @@
                 <ResourceDictionary Source="Resources/styles/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="Resources/styles/TextBoxStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type ViewsModels:DashBoardStudentVM}">
+                <Views:DashBoardStudenView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewsModels:LoginVM}">
+                <Views:Login/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
