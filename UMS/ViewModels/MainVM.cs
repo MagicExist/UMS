@@ -30,9 +30,9 @@ namespace UMS.ViewModels
             set { _currentView = value; OnpropertyChanged(); }
         }
 
-        public void AllowStuentAccesMethod(object parameter) 
+        public void AllowStuentAccesMethod(object parameter)
         {
-            currentView = _dashBoardStudentVM = new DashBoardStudentVM();   
+            currentView = _dashBoardStudentVM = new DashBoardStudentVM();
         }
 
         public MainVM()
