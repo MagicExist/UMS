@@ -15,11 +15,18 @@ namespace UMS.ViewModels
         private LoginVM _loginVM;
 
         private string _txtBoxUser;
+        private string _txtBoxPassword;
 
         public string TxtBoxUser
         {
             get { return _txtBoxUser; }
             set { _txtBoxUser = value; OnpropertyChanged(nameof(TxtBoxUser)); }
+        }
+
+        public string TxtBoxPassword
+        {
+            get { return _txtBoxPassword; }
+            set { _txtBoxPassword = value; OnpropertyChanged(nameof(TxtBoxPassword)); }
         }
 
         public RelayCommand AllowStudentAcces { get; set; }
@@ -39,7 +46,6 @@ namespace UMS.ViewModels
         {
             currentView = _loginVM = new LoginVM();
             AllowStudentAcces = new RelayCommand(AllowStuentAccesMethod);
-            TxtBoxUser = "Test";
         }
     }
 }
