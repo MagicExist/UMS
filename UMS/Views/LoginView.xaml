@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ViewModels="clr-namespace:UMS.ViewModels"
              xmlns:local="clr-namespace:UMS.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <ViewModels:MainVM/>
+    </UserControl.DataContext>
     <Grid>
 
         <Image Source="../Resources/Images/campus.jpg" 
@@ -33,7 +37,6 @@
                                Margin="0 20"
                                HorizontalAlignment="Center"
                                Foreground="{StaticResource text}"/>
-
 
                     <StackPanel Grid.Row="1" Margin="40 30 40 0 ">
 
