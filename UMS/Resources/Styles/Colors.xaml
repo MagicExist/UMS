@@ -7,6 +7,7 @@
     <SolidColorBrush x:Key="third" Color="#17181E"/>
     <SolidColorBrush x:Key="topbar" Color="#17181E"/>
     <SolidColorBrush x:Key="text" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="error" Color="#B85C5C"/>
     <!--#endregion-->
 
     <!--#region Controls Colors keys  -->
