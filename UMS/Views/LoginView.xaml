@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:ViewModels="clr-namespace:UMS.ViewModels"
              xmlns:local="clr-namespace:UMS.Views"
+             xmlns:Components="clr-namespace:UMS.Resources.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
-        <ViewModels:MainVM/>
+        <ViewModels:LoginVM/>
     </UserControl.DataContext>
     <Grid>
 
@@ -51,7 +52,7 @@
                         </Grid>
 
 
-                        <PasswordBox Name="password" Margin="0 20 0 20"/>
+                        <Components:BindebablePasswordBox Margin="0 20 0 20" Password="{Binding TxtBoxPassword,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
 
                     </StackPanel>
 
