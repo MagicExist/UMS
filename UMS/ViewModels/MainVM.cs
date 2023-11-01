@@ -14,22 +14,7 @@ namespace UMS.ViewModels
         private DashBoardStudentVM _dashBoardStudentVM;
         private LoginVM _loginVM;
 
-        private string _txtBoxUser;
-        private string _txtBoxPassword;
-
-        public string TxtBoxUser
-        {
-            get { return _txtBoxUser; }
-            set { _txtBoxUser = value; OnpropertyChanged(nameof(TxtBoxUser)); }
-        }
-
-        public string TxtBoxPassword
-        {
-            get { return _txtBoxPassword; }
-            set { _txtBoxPassword = value; OnpropertyChanged(nameof(TxtBoxPassword)); }
-        }
-
-        public RelayCommand AllowStudentAcces { get; set; }
+        
 
         public object currentView 
         {
@@ -37,15 +22,10 @@ namespace UMS.ViewModels
             set { _currentView = value; OnpropertyChanged(); }
         }
 
-        public void AllowStuentAccesMethod(object parameter)
-        {
-            currentView = _dashBoardStudentVM = new DashBoardStudentVM();
-        }
-
         public MainVM()
         {
             currentView = _loginVM = new LoginVM();
-            AllowStudentAcces = new RelayCommand(AllowStuentAccesMethod);
+            
         }
     }
 }
