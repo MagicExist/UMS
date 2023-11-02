@@ -37,7 +37,7 @@
                     Height="auto" 
                     Visibility="Hidden" 
                     DockPanel.Dock="Left">
-                <Border BorderBrush="{Binding Foreground, ElementName=btn_logout}" BorderThickness="1" Width="15" Height="25" CornerRadius="2" Margin="3 0">
+                <Border BorderBrush="{Binding Foreground, ElementName=btn_logout}" BorderThickness="1 1 0 1" Width="15" Height="25" CornerRadius="2" Margin="3 0">
                     <fa:ImageAwesome DockPanel.Dock="Left" Icon="ArrowLeft" Width="8" Height="8" Foreground="{Binding Foreground, ElementName=btn_logout}" />
                 </Border>
 
