@@ -59,7 +59,7 @@
                             Background="{StaticResource accept-button}"
                             Style="{StaticResource Text-Button}"
                             Content="Ingresar"
-                            Margin="0 10"/>
+                            Margin="0 10"
 
                         <TextBlock Name="error" 
                                    Text="{Binding ElementName=user, Path=Text, Mode=TwoWay}" 
