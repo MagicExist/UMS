@@ -14,7 +14,6 @@ namespace UMS.ViewModels
         private string _txtBoxPassword;
 
         private LoginStore _loginStore;
-        private UserViewStore _userViewStore;
         private UserVM _userVM;
         private DashBoardStudentVM _dashboardStudentVM;
 
@@ -35,7 +34,6 @@ namespace UMS.ViewModels
 
         internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
         internal UserVM UserVM { get => _userVM; set => _userVM = value; }
-        internal UserViewStore UserViewStore { get => _userViewStore; set => _userViewStore = value; }
         internal DashBoardStudentVM DashboardStudentVM { get => _dashboardStudentVM; set => _dashboardStudentVM = value; }
 
         public void AllowMethod(object parameter)
