@@ -36,7 +36,6 @@ namespace UMS.ViewModels
 
         public MainVM()
         {
-            currentView = _loginVM = new LoginVM();
             
         }
        

@@ -40,9 +40,9 @@ namespace UMS.ViewModels
         }
 
         public LoginVM()
-    {
+        {
             AllowAccess = new RelayCommand(AllowMethod);
-    }
+        }
 
     }
 }

@@ -14,7 +14,7 @@
         Background="{StaticResource background}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None">
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
