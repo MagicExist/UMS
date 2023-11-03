@@ -18,15 +18,18 @@ namespace UMS
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            LoginStore loginStore = new LoginStore();
+            #region DeclareObjects
+            //ViewModels
             DashBoardStudentVM dashBoardStudentVM = new DashBoardStudentVM();
             LoginVM loginVM = new LoginVM();
             UserVM userVM = new UserVM();
-            
-            loginVM.LoginStore = loginStore;
-            loginVM.DashBoardStudentVM = dashBoardStudentVM;
-
             MainVM mainVM = new MainVM();
+            //Stores
+            LoginStore loginStore = new LoginStore();
+            #endregion
+            loginVM.LoginStore = loginStore;
+            loginVM.UserVM = userVM;
+            loginVM.DashboardStudentVM = dashBoardStudentVM;
 
             mainVM.LoginStore = loginStore;
             mainVM.currentView = loginVM;

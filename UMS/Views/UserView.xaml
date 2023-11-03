@@ -33,9 +33,11 @@
 
             </StackPanel>
         </Border>
-        
 
-        <Border Grid.Column="1" Background="{StaticResource background}"/>
+
+        <Border Grid.Column="1" Background="{StaticResource background}">
+            <ContentControl Content="{Binding CurrentChildren}"/>
+        </Border>
 
     </Grid>
 </UserControl>

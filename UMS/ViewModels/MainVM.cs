@@ -12,12 +12,9 @@ namespace UMS.ViewModels
     internal class MainVM : ObservableObjects
     {
         private object _currentView;
+
         private DashBoardStudentVM _dashBoardStudentVM;
-
-        private LoginVM _loginVM;
         private LoginStore _loginStore;
-
-        
 
         public object currentView 
         {
@@ -25,7 +22,6 @@ namespace UMS.ViewModels
             set { _currentView = value; OnpropertyChanged(); }
         }
 
-        internal LoginVM LoginVM { get => _loginVM; set => _loginVM = value; }
         internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
 
         public void OnLoginAllowSub(object newView) 
@@ -33,11 +29,9 @@ namespace UMS.ViewModels
             currentView = newView;
         }
 
-
         public MainVM()
         {
             
         }
-       
     }
 }
