@@ -20,6 +20,9 @@
             <DataTemplate DataType="{x:Type ViewsModels:LoginVM}">
                 <Views:Login/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewsModels:UserVM}">
+                <Views:UserView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
