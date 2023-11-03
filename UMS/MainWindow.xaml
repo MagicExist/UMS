@@ -14,10 +14,7 @@
         Background="{StaticResource background}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None">
-    <Window.DataContext>
-        <ViewsModels:MainVM/>
-    </Window.DataContext>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
@@ -56,7 +53,7 @@
             
         </DockPanel>
 
-        <ContentControl Grid.Row="1" Content="{Binding currentView}">
+        <ContentControl Grid.Row="1" Content="{Binding currentView}" x:Name="contentView">
             
         </ContentControl>
     </Grid>

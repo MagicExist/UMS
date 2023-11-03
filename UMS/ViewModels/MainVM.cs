@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using UMS.Core;
+using UMS.Stores;
 
 namespace UMS.ViewModels
 {
@@ -12,17 +13,11 @@ namespace UMS.ViewModels
     {
         private object _currentView;
         private DashBoardStudentVM _dashBoardStudentVM;
+
         private LoginVM _loginVM;
+        private LoginStore _loginStore;
 
-        private string _txtBoxUser;
-
-        public string TxtBoxUser
-        {
-            get { return _txtBoxUser; }
-            set { _txtBoxUser = value; OnpropertyChanged(nameof(TxtBoxUser)); }
-        }
-
-        public RelayCommand AllowStudentAcces { get; set; }
+        
 
         public object currentView 
         {
@@ -30,16 +25,19 @@ namespace UMS.ViewModels
             set { _currentView = value; OnpropertyChanged(); }
         }
 
-        public void AllowStuentAccesMethod(object parameter)
+        internal LoginVM LoginVM { get => _loginVM; set => _loginVM = value; }
+        internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
+
+        public void OnLoginAllowSub(object newView) 
         {
-            currentView = _dashBoardStudentVM = new DashBoardStudentVM();
+            currentView = newView;
         }
+
 
         public MainVM()
         {
-            currentView = _loginVM = new LoginVM();
-            AllowStudentAcces = new RelayCommand(AllowStuentAccesMethod);
-            TxtBoxUser = "Test";
+            
         }
+       
     }
 }
