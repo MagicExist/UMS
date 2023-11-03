@@ -5,11 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:ViewModels="clr-namespace:UMS.ViewModels"
              xmlns:local="clr-namespace:UMS.Views"
+             xmlns:Components="clr-namespace:UMS.Resources.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <ViewModels:MainVM/>
-    </UserControl.DataContext>
+ 
     <Grid>
 
         <Image Source="../Resources/Images/campus.jpg" 
@@ -47,11 +46,11 @@
                             </Grid.ColumnDefinitions>
 
                             <Label Grid.Column="0" Content="Usuario:"/>
-                            <TextBox  Grid.Column="1" Name="user"/>
+                            <TextBox  Grid.Column="1" Name="user" Text="{Binding TxtBoxUser,Mode=TwoWay}"/>
                         </Grid>
-                        
-                       
-                        <PasswordBox Name="password" Margin="0 20 0 20"/>
+
+
+                        <Components:BindebablePasswordBox Margin="0 20 0 20" Password="{Binding TxtBoxPassword,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
 
                     </StackPanel>
 
@@ -60,7 +59,8 @@
                             Background="{StaticResource accept-button}"
                             Style="{StaticResource Text-Button}"
                             Content="Ingresar"
-                            Margin="0 10"/>
+                            Margin="0 10"
+                            Command="{Binding AllowAccess}"/>
 
                         <TextBlock Name="error" 
                                    Text="{Binding ElementName=user, Path=Text, Mode=TwoWay}" 
