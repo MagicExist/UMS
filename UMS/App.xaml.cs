@@ -18,12 +18,10 @@ namespace UMS
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-
             LoginStore loginStore = new LoginStore();
-            
             DashBoardStudentVM dashBoardStudentVM = new DashBoardStudentVM();
-
             LoginVM loginVM = new LoginVM();
+            UserVM userVM = new UserVM();
             
             loginVM.LoginStore = loginStore;
             loginVM.DashBoardStudentVM = dashBoardStudentVM;
@@ -38,8 +36,6 @@ namespace UMS
             {
                 DataContext = mainVM
             };
-
-
             MainWindow.Show();
 
             base.OnStartup(e);
