@@ -14,9 +14,6 @@
         Background="{StaticResource background}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None">
-    <Window.DataContext>
-        <ViewsModels:MainVM/>
-    </Window.DataContext>
     
     <Grid>
         <Grid.RowDefinitions>
