@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:UMS" 
         xmlns:Views="clr-namespace:UMS.Views"
         xmlns:ViewsModels="clr-namespace:UMS.ViewModels"
@@ -27,13 +28,17 @@
                    LastChildFill="False" 
                    Background="{StaticResource topbar}">
 
-            <Button Name="btn_logout" 
-                    Content="logout"
+            <Button Name="btn_logout"
                     Style="{StaticResource transparent-Button}"
                     Width="auto" 
                     Height="auto" 
-                    Visibility="hidden" 
-                    DockPanel.Dock="Left"/>
+                    Visibility="Hidden" 
+                    DockPanel.Dock="Left">
+                <Border BorderBrush="{Binding Foreground, ElementName=btn_logout}" BorderThickness="1 1 0 1" Width="15" Height="25" CornerRadius="2" Margin="3 0">
+                    <fa:ImageAwesome DockPanel.Dock="Left" Icon="ArrowLeft" Width="8" Height="8" Foreground="{Binding Foreground, ElementName=btn_logout}" />
+                </Border>
+
+            </Button>
 
             <Button Name="btn_Close" 
                     Content="X"
@@ -51,10 +56,12 @@
                     Height="auto" 
                     DockPanel.Dock="Right"/>
             
+            
+            
         </DockPanel>
 
         <ContentControl Grid.Row="1" Content="{Binding currentView}" x:Name="contentView">
-            
+       
         </ContentControl>
     </Grid>
 </Window>

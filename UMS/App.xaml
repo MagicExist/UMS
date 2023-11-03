@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="Resources/styles/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="Resources/styles/TextBoxStyles.xaml"/>
                 <ResourceDictionary Source="Resources/styles/LabelStyles.xaml"/>
+                <ResourceDictionary Source="Resources/styles/RadioButtonStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type ViewsModels:DashBoardStudentVM}">
                 <Views:DashBoardStudenView/>
