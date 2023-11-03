@@ -43,4 +43,6 @@ namespace UMS.ViewModels
     {
             AllowAccess = new RelayCommand(AllowMethod);
     }
+
+    }
 }
