@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using UMS.Core;
+using UMS.Stores;
 
 namespace UMS.ViewModels
 {
@@ -12,7 +13,9 @@ namespace UMS.ViewModels
     {
         private object _currentView;
         private DashBoardStudentVM _dashBoardStudentVM;
+
         private LoginVM _loginVM;
+        private LoginStore _loginStore;
 
         
 
@@ -22,10 +25,20 @@ namespace UMS.ViewModels
             set { _currentView = value; OnpropertyChanged(); }
         }
 
+        internal LoginVM LoginVM { get => _loginVM; set => _loginVM = value; }
+        internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
+
+        public void OnLoginAllowSub(object newView) 
+        {
+            currentView = newView;
+        }
+
+
         public MainVM()
         {
             currentView = _loginVM = new LoginVM();
             
         }
+       
     }
 }
