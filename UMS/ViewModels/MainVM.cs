@@ -13,7 +13,6 @@ namespace UMS.ViewModels
     {
         private object _currentView;
 
-        private DashBoardStudentVM _dashBoardStudentVM;
         private LoginStore _loginStore;
 
         public object currentView 

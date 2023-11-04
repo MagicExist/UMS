@@ -9,7 +9,7 @@
         <Setter Property="BorderBrush" Value="{StaticResource second}"/>
         <Setter Property="BorderThickness" Value="0 0 0 3"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="0 0 5 0"/>
+        <Setter Property="Padding" Value="10 0 5 0"/>
     </Style>
 
 </ResourceDictionary>

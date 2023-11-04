@@ -15,7 +15,7 @@ namespace UMS.ViewModels
 
         private LoginStore _loginStore;
         private UserVM _userVM;
-        private DashBoardStudentVM _dashboardStudentVM;
+        private UserSupportVM _userSupportVM;
 
         public RelayCommand AllowAccess { get; set; }
 
@@ -34,11 +34,11 @@ namespace UMS.ViewModels
 
         internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
         internal UserVM UserVM { get => _userVM; set => _userVM = value; }
-        internal DashBoardStudentVM DashboardStudentVM { get => _dashboardStudentVM; set => _dashboardStudentVM = value; }
+        internal UserSupportVM UserSupportVM { get => _userSupportVM; set => _userSupportVM = value; }
 
         public void AllowMethod(object parameter)
         {
-            UserVM.CurrentChildren = DashboardStudentVM;
+            UserVM.CurrentChildren = UserSupportVM;
             LoginStore.OnLoginAllowInvoke(UserVM);
         }
 
