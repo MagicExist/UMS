@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:UMS.Views"
              mc:Ignorable="d" 
              d:DesignHeight="605" d:DesignWidth="954">
-    <ScrollViewer Background="Transparent">
-        <Grid Margin="40 20 20 0">
+    
+    <ScrollViewer>
+        <Grid Margin="40 20 40 0">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
