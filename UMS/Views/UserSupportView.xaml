@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UMS.Views"
+             xmlns:ViewModels="clr-namespace:UMS.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="605" d:DesignWidth="954">
     
@@ -12,7 +13,6 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
@@ -23,7 +23,7 @@
                    FontSize="50"
                    Margin="0 0 0 30"/>
 
-            <StackPanel Grid.Row="1" Margin="0 0 0 20">
+            <StackPanel Grid.Row="1" Margin="0 0 0 20" Visibility="{Binding ListRequestVisibility, Mode=TwoWay}">
 
                 <TextBlock Text="Lista de Peticiones" 
                        Foreground="{StaticResource text}"
@@ -72,12 +72,21 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                
 
+                <DockPanel Margin="5" LastChildFill="False">
+                    <Button DockPanel.Dock="Right"
+                        Name="btn_NewRequest"
+                        Command="{Binding newRequest}"
+                        Content="Realizar nueva petición"
+                        Background="{StaticResource generic-button}"
+                        Style="{StaticResource Text-Button}"
+                        Margin="20"/>
+                </DockPanel>
+                
             </StackPanel>
 
 
-            <StackPanel Grid.Row="2" Margin="0">
+            <StackPanel Grid.Row="2" Visibility="{Binding NewRequestVisibility, Mode=TwoWay}">
 
                 <TextBlock Text="Petición" 
                        Foreground="{StaticResource text}"
@@ -101,42 +110,33 @@
                 </Grid>
 
                 <TextBlock Text="Detalles:"  
-                       Background="{StaticResource background-textbox}"
-                       Foreground="{StaticResource text}" 
-                       FontSize="18"
-                       Padding="10 2"/>
+                           Background="{StaticResource background-textbox}"
+                           Foreground="{StaticResource text}" 
+                           FontSize="18"
+                           Padding="10 2"/>
 
                 <TextBox Name="Details" 
-                     Background="{StaticResource background-textbox}" 
-                     Height="125" 
-                     Padding="10" 
-                     TextWrapping="Wrap"/>
+                         Background="{StaticResource background-textbox}" 
+                         Height="125" 
+                         Padding="10" 
+                         TextWrapping="Wrap"/>
 
                 <StackPanel Orientation="Horizontal" Margin="0 30" HorizontalAlignment="Right">
 
-                    <Button Name="btn_SendRequest"
-                        Content="Enviar Petición" 
-                        Background="{StaticResource accept-button}"
-                        Style="{StaticResource Text-Button}"/>
+                    <Button Content="Enviar Petición" 
+                            Command="{Binding sendRequest}"
+                            Background="{StaticResource accept-button}"
+                            Style="{StaticResource Text-Button}"/>
 
-                    <Button Name="btn_CancelRequest"
-                        Content="Cancelar"
-                        Background="{StaticResource cancel-button}"
-                        Style="{StaticResource Text-Button}"
-                        Margin="20 0 0 0"/>
+                    <Button Content="Cancelar"
+                            Command="{Binding cancelRequest}"
+                            Background="{StaticResource cancel-button}"
+                            Style="{StaticResource Text-Button}"
+                            Margin="20 0 0 0"/>
 
                 </StackPanel>
 
             </StackPanel>
-
-            <DockPanel Grid.Row="3" Margin="5" LastChildFill="False">
-                <Button DockPanel.Dock="Right"
-                        Name="btn_NewRequest"
-                        Content="Realizar nueva petición"
-                        Background="{StaticResource generic-button}"
-                        Style="{StaticResource Text-Button}"
-                        Margin="20"/>
-            </DockPanel>
 
         </Grid>
     </ScrollViewer>

@@ -20,9 +20,12 @@ namespace UMS.Views
     /// </summary>
     public partial class UserSupportView : UserControl
     {
+
         public UserSupportView()
         {
             InitializeComponent();
         }
+
+        
     }
 }
