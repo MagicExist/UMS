@@ -13,9 +13,10 @@
                 <ResourceDictionary Source="Resources/styles/TextBoxStyles.xaml"/>
                 <ResourceDictionary Source="Resources/styles/LabelStyles.xaml"/>
                 <ResourceDictionary Source="Resources/styles/RadioButtonStyles.xaml"/>
+                <ResourceDictionary Source="Resources/styles/ScrollBarStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            <DataTemplate DataType="{x:Type ViewsModels:DashBoardStudentVM}">
-                <Views:DashBoardStudenView/>
+            <DataTemplate DataType="{x:Type ViewsModels:UserSupportVM}">
+                <Views:UserSupportView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type ViewsModels:LoginVM}">
                 <Views:Login/>

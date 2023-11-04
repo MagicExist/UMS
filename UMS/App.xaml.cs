@@ -20,7 +20,7 @@ namespace UMS
         {
             #region DeclareObjects
             //ViewModels
-            DashBoardStudentVM dashBoardStudentVM = new DashBoardStudentVM();
+            UserSupportVM userSupportVM = new UserSupportVM();
             LoginVM loginVM = new LoginVM();
             UserVM userVM = new UserVM();
             MainVM mainVM = new MainVM();
@@ -29,7 +29,7 @@ namespace UMS
             #endregion
             loginVM.LoginStore = loginStore;
             loginVM.UserVM = userVM;
-            loginVM.DashboardStudentVM = dashBoardStudentVM;
+            loginVM.UserSupportVM = userSupportVM;
 
             mainVM.LoginStore = loginStore;
             mainVM.currentView = loginVM;

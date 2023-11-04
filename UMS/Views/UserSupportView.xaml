@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="UMS.Views.UserSupportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UMS.Views"
+             xmlns:ViewModels="clr-namespace:UMS.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="605" d:DesignWidth="954">
+    
+    <ScrollViewer>
+        <Grid Margin="40 20 40 0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"
+                   Text="Soporte" 
+                   Foreground="{StaticResource text}"
+                   FontSize="50"
+                   Margin="0 0 0 30"/>
+
+            <StackPanel Grid.Row="1" Margin="0 0 0 20" Visibility="{Binding ListRequestVisibility, Mode=TwoWay}">
+
+                <TextBlock Text="Lista de Peticiones" 
+                       Foreground="{StaticResource text}"
+                       FontSize="35"/>
+
+                <Grid Background="{StaticResource background-textbox}" Margin="20 30 0 0">
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" BorderBrush="{StaticResource text}" BorderThickness="1">
+                        <TextBlock Text="Fecha" HorizontalAlignment="Center" Foreground="{StaticResource text}"/>
+                    </Border>
+
+                    <Border Grid.Column="1" BorderBrush="{StaticResource text}" BorderThickness="1">
+                        <TextBlock Text="Asunto" HorizontalAlignment="Center" Foreground="{StaticResource text}"/>
+                    </Border>
+
+                    <Border Grid.Column="2" BorderBrush="{StaticResource text}" BorderThickness="1">
+                        <TextBlock Text="Estado" HorizontalAlignment="Center" Foreground="{StaticResource text}"/>
+                    </Border>
+
+                </Grid>
+
+                <ListBox Name="ListRequest" Margin="20 0 0 0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+
+                            <Grid Margin="2">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="150"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"/>
+                                <TextBlock Grid.Column="1"/>
+                                <TextBlock Grid.Column="2"/>
+
+                            </Grid>
+                            
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <DockPanel Margin="5" LastChildFill="False">
+                    <Button DockPanel.Dock="Right"
+                        Name="btn_NewRequest"
+                        Command="{Binding newRequest}"
+                        Content="Realizar nueva petición"
+                        Background="{StaticResource generic-button}"
+                        Style="{StaticResource Text-Button}"
+                        Margin="20"/>
+                </DockPanel>
+                
+            </StackPanel>
+
+
+            <StackPanel Grid.Row="2" Visibility="{Binding NewRequestVisibility, Mode=TwoWay}">
+
+                <TextBlock Text="Petición" 
+                       Foreground="{StaticResource text}"
+                       FontSize="35"/>
+
+                <Grid Margin="0 30 0 50">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" 
+                       Content="Asunto:" 
+                       Background="{StaticResource background-textbox}"/>
+
+                    <TextBox Grid.Column="1" 
+                         Name="subject" 
+                         Background="{StaticResource background-textbox}"/>
+
+                </Grid>
+
+                <TextBlock Text="Detalles:"  
+                           Background="{StaticResource background-textbox}"
+                           Foreground="{StaticResource text}" 
+                           FontSize="18"
+                           Padding="10 2"/>
+
+                <TextBox Name="Details" 
+                         Background="{StaticResource background-textbox}" 
+                         Height="125" 
+                         Padding="10" 
+                         TextWrapping="Wrap"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0 30" HorizontalAlignment="Right">
+
+                    <Button Content="Enviar Petición" 
+                            Command="{Binding sendRequest}"
+                            Background="{StaticResource accept-button}"
+                            Style="{StaticResource Text-Button}"/>
+
+                    <Button Content="Cancelar"
+                            Command="{Binding cancelRequest}"
+                            Background="{StaticResource cancel-button}"
+                            Style="{StaticResource Text-Button}"
+                            Margin="20 0 0 0"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>
