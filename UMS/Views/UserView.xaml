@@ -19,11 +19,11 @@
             
             <StackPanel Width="70" VerticalAlignment="Center">
 
-                <RadioButton Name="home" IsChecked="True">
+                <RadioButton Name="home">
                     <fa:ImageAwesome Icon="Home" Width="auto" Height="30" Foreground="{Binding Foreground, ElementName=home}"/>
                 </RadioButton>
-                
-                <RadioButton Name="support">
+
+                <RadioButton Name="support" IsChecked="True">
                     <fa:ImageAwesome Icon="Wrench" Width="auto" Height="30" Foreground="{Binding Foreground,ElementName=support}"/>
                 </RadioButton>
 

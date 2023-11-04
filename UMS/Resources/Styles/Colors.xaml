@@ -15,6 +15,7 @@
     <SolidColorBrush x:Key="cancel-button" Color="#B85C5C"/>
     <SolidColorBrush x:Key="accept-button" Color="#5CB85C"/>
     <SolidColorBrush x:Key="background-textbox" Color="#21222C"/>
+    <SolidColorBrush x:Key="ScrollBar" Color="#4286A2"/>
     <!--#endregion-->
 
 </ResourceDictionary>

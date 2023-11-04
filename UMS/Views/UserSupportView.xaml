@@ -12,7 +12,7 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
@@ -29,10 +29,55 @@
                        Foreground="{StaticResource text}"
                        FontSize="35"/>
 
+                <Grid Background="{StaticResource background-textbox}" Margin="20 30 0 0">
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" BorderBrush="{StaticResource text}" BorderThickness="1">
+                        <TextBlock Text="Fecha" HorizontalAlignment="Center" Foreground="{StaticResource text}"/>
+                    </Border>
+
+                    <Border Grid.Column="1" BorderBrush="{StaticResource text}" BorderThickness="1">
+                        <TextBlock Text="Asunto" HorizontalAlignment="Center" Foreground="{StaticResource text}"/>
+                    </Border>
+
+                    <Border Grid.Column="2" BorderBrush="{StaticResource text}" BorderThickness="1">
+                        <TextBlock Text="Estado" HorizontalAlignment="Center" Foreground="{StaticResource text}"/>
+                    </Border>
+
+                </Grid>
+
+                <ListBox Name="ListRequest" Margin="20 0 0 0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+
+                            <Grid Margin="2">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="150"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"/>
+                                <TextBlock Grid.Column="1"/>
+                                <TextBlock Grid.Column="2"/>
+
+                            </Grid>
+                            
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                
+
             </StackPanel>
 
 
-            <StackPanel Grid.Row="2" Margin="0 20">
+            <StackPanel Grid.Row="2" Margin="0">
 
                 <TextBlock Text="Petición" 
                        Foreground="{StaticResource text}"
@@ -86,11 +131,11 @@
 
             <DockPanel Grid.Row="3" Margin="5" LastChildFill="False">
                 <Button DockPanel.Dock="Right"
-                    Name="btn_NewRequest"
-                    Content="Realizar nueva petición"
-                    Background="{StaticResource generic-button}"
-                    Style="{StaticResource Text-Button}"
-                    Margin="20 0 0 0"/>
+                        Name="btn_NewRequest"
+                        Content="Realizar nueva petición"
+                        Background="{StaticResource generic-button}"
+                        Style="{StaticResource Text-Button}"
+                        Margin="20"/>
             </DockPanel>
 
         </Grid>

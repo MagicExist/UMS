@@ -37,7 +37,7 @@
                         <Border HorizontalAlignment="Stretch" 
                                 VerticalAlignment="Stretch" 
                                 Width="auto" Height="auto" 
-                                Background="{StaticResource second}"/>
+                                Background="{StaticResource ScrollBar}"/>
                         
                     </Grid>
                 </ControlTemplate>
