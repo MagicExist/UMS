@@ -8,6 +8,7 @@
     <SolidColorBrush x:Key="topbar" Color="#17181E"/>
     <SolidColorBrush x:Key="text" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="error" Color="#B85C5C"/>
+    <SolidColorBrush x:Key="shadow" Color="#21222C"/>
     <!--#endregion-->
 
     <!--#region Controls Colors keys  -->

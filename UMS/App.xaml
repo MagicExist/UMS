@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="Resources/styles/LabelStyles.xaml"/>
                 <ResourceDictionary Source="Resources/styles/RadioButtonStyles.xaml"/>
                 <ResourceDictionary Source="Resources/styles/ScrollBarStyle.xaml"/>
+                <ResourceDictionary Source="Resources/styles/DataGridStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type ViewsModels:UserSupportVM}">
                 <Views:UserSupportView/>
