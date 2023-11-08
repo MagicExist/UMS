@@ -62,11 +62,24 @@ namespace UMS.ViewModels
 
 
 			Requests.Add(new Request("2023/10/11","Problemas con mi Horario","Kevin Rogers","Pendiente"));
-			Requests.Add(new Request("2023/09/23", "No veo mis clases", "Kevin Rogers", "Solucionada"));
+			Requests.Add(new Request("2023/09/23", "No veo mis clases", "Kevin Rogers", "Solucionada")); 
 			Requests.Add(new Request("2023/09/15", "Hay un error con la hora de una de mis asignaturas", "Kevin Rogers", "Pendiente"));
 			Requests.Add(new Request("2023/08/10", "no me aparece la informacion de la clase", "Kevin Rogers", "Solucionada"));
+            Requests.Add(new Request("2023/10/11", "Problemas con mi Horario", "Kevin Rogers", "Pendiente"));
+            Requests.Add(new Request("2023/09/23", "No veo mis clases", "Kevin Rogers", "Solucionada"));
+            Requests.Add(new Request("2023/09/15", "Hay un error con la hora de una de mis asignaturas", "Kevin Rogers", "Pendiente"));
+            Requests.Add(new Request("2023/08/10", "no me aparece la informacion de la clase", "Kevin Rogers", "Solucionada"));
+            Requests.Add(new Request("2023/10/11", "Problemas con mi Horario", "Kevin Rogers", "Pendiente"));
+            Requests.Add(new Request("2023/09/23", "No veo mis clases", "Kevin Rogers", "Solucionada"));
+            Requests.Add(new Request("2023/09/15", "Hay un error con la hora de una de mis asignaturas", "Kevin Rogers", "Pendiente"));
+            Requests.Add(new Request("2023/08/10", "no me aparece la informacion de la clase", "Kevin Rogers", "Solucionada"));
+            Requests.Add(new Request("2023/10/11", "Problemas con mi Horario", "Kevin Rogers", "Pendiente"));
+            Requests.Add(new Request("2023/09/23", "No veo mis clases", "Kevin Rogers", "Solucionada"));
+            Requests.Add(new Request("2023/09/15", "Hay un error con la hora de una de mis asignaturas", "Kevin Rogers", "Pendiente"));
+            Requests.Add(new Request("2023/08/10", "no me aparece la informacion de la clase", "Kevin Rogers", "Solucionada"));
 
-		}
+
+        }
 
 		private void MakeRequest(object parameter) 
 		{ 

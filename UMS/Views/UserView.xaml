@@ -17,7 +17,7 @@
 
         <Border Grid.Column="0" Background="{StaticResource primary}">
             
-            <StackPanel Width="70" VerticalAlignment="Center">
+            <StackPanel Width="70" VerticalAlignment="Top">
 
                 <RadioButton Name="home">
                     <fa:ImageAwesome Icon="Home" Width="auto" Height="30" Foreground="{Binding Foreground, ElementName=home}"/>

@@ -17,6 +17,8 @@
     <SolidColorBrush x:Key="accept-button" Color="#5CB85C"/>
     <SolidColorBrush x:Key="background-textbox" Color="#21222C"/>
     <SolidColorBrush x:Key="ScrollBar" Color="#4286A2"/>
+    <SolidColorBrush x:Key="datagrid-selct-background" Color="#27465d"/>
+    <SolidColorBrush x:Key="datagrid-selct-border" Color="#26a0da"/>
     <!--#endregion-->
 
 </ResourceDictionary>
