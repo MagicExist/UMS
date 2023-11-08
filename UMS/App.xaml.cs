@@ -21,6 +21,7 @@ namespace UMS
             #region DeclareObjects
             //ViewModels
             UserSupportVM userSupportVM = new UserSupportVM();
+            userHomeVM userHomeVM = new userHomeVM();
             LoginVM loginVM = new LoginVM();
             UserVM userVM = new UserVM();
             MainVM mainVM = new MainVM();
@@ -30,6 +31,7 @@ namespace UMS
             loginVM.LoginStore = loginStore;
             loginVM.UserVM = userVM;
             loginVM.UserSupportVM = userSupportVM;
+            loginVM.UserHomeVM= userHomeVM;
 
             mainVM.LoginStore = loginStore;
             mainVM.currentView = loginVM;

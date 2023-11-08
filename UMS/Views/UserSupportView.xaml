@@ -28,50 +28,23 @@
                 <TextBlock Text="Lista de Peticiones" 
                        Foreground="{StaticResource text}"
                        FontSize="35"/>
+                
 
-                <Grid Background="{StaticResource background-textbox}" Margin="20 30 0 0">
+                <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="ListRequest" 
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          Margin="0 10"
+                          MaxHeight="300"
+                          ItemsSource="{Binding Requests}">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Fecha" Width="100" Binding="{Binding Date}" MaxWidth="100" MinWidth="100"/>
+                        <DataGridTextColumn Header="Asunto" Width="4*" Binding="{Binding Subject}"/>
+                        <DataGridTextColumn Header="Administrador" Width="2*" Binding="{Binding Admin}"/>
+                        <DataGridTextColumn Header="Estado" Width="100" Binding="{Binding Status}" MaxWidth="100" MinWidth="100"/>
+                    </DataGrid.Columns>
                     
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="150"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Border Grid.Column="0" BorderBrush="{StaticResource text}" BorderThickness="1">
-                        <TextBlock Text="Fecha" HorizontalAlignment="Center" Foreground="{StaticResource text}"/>
-                    </Border>
-
-                    <Border Grid.Column="1" BorderBrush="{StaticResource text}" BorderThickness="1">
-                        <TextBlock Text="Asunto" HorizontalAlignment="Center" Foreground="{StaticResource text}"/>
-                    </Border>
-
-                    <Border Grid.Column="2" BorderBrush="{StaticResource text}" BorderThickness="1">
-                        <TextBlock Text="Estado" HorizontalAlignment="Center" Foreground="{StaticResource text}"/>
-                    </Border>
-
-                </Grid>
-
-                <ListBox Name="ListRequest" Margin="20 0 0 0">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-
-                            <Grid Margin="2">
-
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="150"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="150"/>
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock Grid.Column="0"/>
-                                <TextBlock Grid.Column="1"/>
-                                <TextBlock Grid.Column="2"/>
-
-                            </Grid>
-                            
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                </DataGrid>
 
                 <DockPanel Margin="5" LastChildFill="False">
                     <Button DockPanel.Dock="Right"
