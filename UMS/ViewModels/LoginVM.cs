@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UMS.Core;
+using UMS.Models.ModelsDB;
+using UMS.Models.UsersModels;
 using UMS.Stores;
 
 namespace UMS.ViewModels
@@ -20,6 +23,12 @@ namespace UMS.ViewModels
 
         public RelayCommand AllowAccess { get; set; }
 
+        enum userType 
+        {
+            Admin = 1,
+            Professor = 2,
+            Student = 3
+        }
 
         public string TxtBoxUser
         {
@@ -40,8 +49,19 @@ namespace UMS.ViewModels
 
         public void AllowMethod(object parameter)
         {
-            UserVM.CurrentChildren = UserHomeVM;
-            LoginStore.OnLoginAllowInvoke(UserVM);
+            OpenDbConnection openDbConnection = new OpenDbConnection();
+            LoginDB loginDB = new LoginDB();
+            SqlConnection currentConnection = openDbConnection.openConnection();
+            (User currentUser,int type) = loginDB.allowLogin(currentConnection,TxtBoxUser,TxtBoxPassword);
+
+            switch ((userType)type) 
+            {
+                case userType.Student:
+                    UserVM.CurrentChildren = UserHomeVM;
+                    LoginStore.OnLoginAllowInvoke(UserVM);
+                    break;
+            }
+            currentConnection.Close();
         }
 
         public LoginVM()
