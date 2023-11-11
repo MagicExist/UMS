@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using UMS.Core;
 using UMS.Models;
+using UMS.Models.ModelsDB;
 using UMS.Models.UsersModels;
 
 namespace UMS.ViewModels
@@ -98,26 +100,13 @@ namespace UMS.ViewModels
             confirmDetailsCommand = new RelayCommand(ConfirmDetails);
             canceltDetailsCommand = new RelayCommand(CancelDetails);
 
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Martes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Martes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Miercoles", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Miercoles", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Miercoles", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Miercoles", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Miercoles", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Viernes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Viernes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Viernes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Viernes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Viernes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            
+            #region LoadScheduler
+            OpenDbConnection openDbConnection = new OpenDbConnection();
+            ClassDB classDB = new ClassDB();
+            SqlConnection currentConnection = openDbConnection.openConnection();
+            horario = classDB.loadClass(currentConnection);
+            #endregion
+
 
         }
 

@@ -8,21 +8,19 @@ namespace UMS.Models
 {
     public class Class
     {
-
         string day;
         string startTime;
         string endTime;
         string idGroup;
         string idClassRoom;
         string course;
-
-        public string Day { get => day;}
+        
         public string StartTime { get => startTime;}
         public string EndTime { get => endTime; }
         public string IdGroup { get => idGroup; }
         public string IdClassRoom { get => idClassRoom; }
         public string Course { get => course; }
-
+        public string Day { get => day;}
 
         public Class(string day, string startTime, string endTime, string idGroup, string idClassRoom, string course)
         {
