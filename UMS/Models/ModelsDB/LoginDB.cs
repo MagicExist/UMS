@@ -47,10 +47,12 @@ namespace UMS.Models.ModelsDB
 
             _reader.Close();
 
+            
+
             string query  = "select Tipo from Usuarios where Id = @document";
 
-            _command = new SqlCommand(query, currentConnection);
-
+            _command.CommandText = query;
+            _command.CommandType = CommandType.Text;
             _command.Parameters.AddWithValue("@document", _user.Document);
 
             _reader = _command.ExecuteReader();
