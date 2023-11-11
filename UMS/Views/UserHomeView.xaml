@@ -26,8 +26,8 @@
 
 
         <StackPanel Grid.Row="0" Orientation="Vertical" Margin="40 20">
-            
-            <TextBlock Text="Kevin Oswaldo Rogers Cardona" 
+
+            <TextBlock Text="{Binding StudentName}" 
                        Foreground="{StaticResource text}"
                        FontSize="32"/>
 

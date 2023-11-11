@@ -6,11 +6,30 @@ using System.Threading.Tasks;
 using System.Windows;
 using UMS.Core;
 using UMS.Models;
+using UMS.Models.UsersModels;
 
 namespace UMS.ViewModels
 {
     class userHomeVM : ObservableObjects
     {
+        #region variables for logic management
+        private User _currentUser;
+        private string _studentName;
+        public User CurrentUser 
+        {
+            get { return _currentUser; }
+            set 
+            {
+                _currentUser = value;
+                StudentName = _currentUser.Name;
+            }
+        }
+            
+        public string StudentName { get { return _studentName; } set { _studentName = value;OnpropertyChanged(); } }
+
+        #endregion
+
+
         #region variables for interface management
         List<Class> horario = new List<Class>();
         public List<Class> Scheduler

@@ -57,6 +57,7 @@ namespace UMS.ViewModels
             switch ((userType)type) 
             {
                 case userType.Student:
+                    UserHomeVM.CurrentUser = currentUser;
                     UserVM.CurrentChildren = UserHomeVM;
                     LoginStore.OnLoginAllowInvoke(UserVM,currentUser);
                     break;
