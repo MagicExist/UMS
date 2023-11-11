@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using UMS.Core;
+using UMS.Models.UsersModels;
 using UMS.Stores;
 
 namespace UMS.ViewModels
@@ -23,7 +24,7 @@ namespace UMS.ViewModels
 
         internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
 
-        public void OnLoginAllowSub(object newView) 
+        public void OnLoginAllowSub(object newView,User currentUser) 
         {
             currentView = newView;
         }

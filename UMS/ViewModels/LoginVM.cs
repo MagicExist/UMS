@@ -58,7 +58,7 @@ namespace UMS.ViewModels
             {
                 case userType.Student:
                     UserVM.CurrentChildren = UserHomeVM;
-                    LoginStore.OnLoginAllowInvoke(UserVM);
+                    LoginStore.OnLoginAllowInvoke(UserVM,currentUser);
                     break;
             }
             currentConnection.Close();
