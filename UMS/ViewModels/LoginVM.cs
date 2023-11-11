@@ -17,6 +17,7 @@ namespace UMS.ViewModels
         private UserVM _userVM;
         private UserSupportVM _userSupportVM;
         private userHomeVM _userHomeVM;
+        private AdminHomeVM _adminHomeVM;
 
         public RelayCommand AllowAccess { get; set; }
 
@@ -37,10 +38,11 @@ namespace UMS.ViewModels
         internal UserVM UserVM { get => _userVM; set => _userVM = value; }
         internal UserSupportVM UserSupportVM { get => _userSupportVM; set => _userSupportVM = value; }
         internal userHomeVM UserHomeVM { get => _userHomeVM; set => _userHomeVM = value; }
+        internal AdminHomeVM AdminHomeVM { get => _adminHomeVM; set => _adminHomeVM = value; }
 
         public void AllowMethod(object parameter)
         {
-            UserVM.CurrentChildren = UserHomeVM;
+            UserVM.CurrentChildren = AdminHomeVM;
             LoginStore.OnLoginAllowInvoke(UserVM);
         }
 
