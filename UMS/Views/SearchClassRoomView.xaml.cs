@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace UMS.Views
 {
     /// <summary>
-    /// Interaction logic for DashBoardStudenView.xaml
+    /// Interaction logic for SearchClassRoomView.xaml
     /// </summary>
-    public partial class DashBoardStudenView : UserControl
+    public partial class SearchClassRoomView : UserControl
     {
-        public DashBoardStudenView()
+        public SearchClassRoomView()
         {
             InitializeComponent();
         }

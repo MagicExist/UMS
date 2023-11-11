@@ -23,6 +23,7 @@ namespace UMS
             UserSupportVM userSupportVM = new UserSupportVM();
             userHomeVM userHomeVM = new userHomeVM();
             AdminHomeVM adminHomeVM = new AdminHomeVM();
+            SearchClassRoomVM searchClassRoomVM = new SearchClassRoomVM();   
             LoginVM loginVM = new LoginVM();
             UserVM userVM = new UserVM();
             MainVM mainVM = new MainVM();
@@ -34,6 +35,7 @@ namespace UMS
             loginVM.UserSupportVM = userSupportVM;
             loginVM.UserHomeVM= userHomeVM;
             loginVM.AdminHomeVM= adminHomeVM;
+            loginVM.SearchClassRoomVM = searchClassRoomVM;
 
 
 

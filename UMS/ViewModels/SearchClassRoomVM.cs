@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UMS.ViewModels
 {
-    internal class DashBoardStudentVM
+    class SearchClassRoomVM
     {
     }
 }

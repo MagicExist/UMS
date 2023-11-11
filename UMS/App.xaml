@@ -32,6 +32,9 @@
             <DataTemplate DataType="{x:Type ViewsModels:AdminHomeVM}">
                 <Views:AdminHomeView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewsModels:SearchClassRoomVM}">
+                <Views:SearchClassRoomView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

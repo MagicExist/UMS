@@ -51,7 +51,6 @@ namespace UMS.ViewModels
 
         #endregion
 
-
         #region commands
 
         public RelayCommand ReplyCommand { get; set; }
@@ -104,7 +103,6 @@ namespace UMS.ViewModels
         }
 
         #endregion 
-
 
     }
 }
