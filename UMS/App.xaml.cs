@@ -22,6 +22,7 @@ namespace UMS
             //ViewModels
             UserSupportVM userSupportVM = new UserSupportVM();
             userHomeVM userHomeVM = new userHomeVM();
+            AdminHomeVM adminHomeVM = new AdminHomeVM();
             LoginVM loginVM = new LoginVM();
             UserVM userVM = new UserVM();
             MainVM mainVM = new MainVM();
@@ -32,6 +33,10 @@ namespace UMS
             loginVM.UserVM = userVM;
             loginVM.UserSupportVM = userSupportVM;
             loginVM.UserHomeVM= userHomeVM;
+            loginVM.AdminHomeVM= adminHomeVM;
+
+
+
 
             mainVM.LoginStore = loginStore;
             mainVM.currentView = loginVM;

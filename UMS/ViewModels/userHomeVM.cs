@@ -12,11 +12,11 @@ namespace UMS.ViewModels
     class userHomeVM : ObservableObjects
     {
         #region variables for interface management
-        List<Class> horario = new List<Class>();
+        List<Class> _scheduler = new List<Class>();
         public List<Class> Scheduler
         {
-            get { return horario; }
-            set { horario = value; OnpropertyChanged(); }
+            get { return _scheduler; }
+            set { _scheduler = value; OnpropertyChanged(); }
         }
 
         Visibility _editDetailsVisibility;
@@ -55,6 +55,9 @@ namespace UMS.ViewModels
             set { _textBoxReadOnly = value; OnpropertyChanged(); }
         }
 
+        Class _selectClass;
+        public Class SelectClass { get => _selectClass; set => _selectClass = value as Class; }
+
         #endregion
 
         #region Commands
@@ -63,42 +66,28 @@ namespace UMS.ViewModels
         public RelayCommand confirmDetailsCommand { get; set; }
         public RelayCommand canceltDetailsCommand { get; set; }
 
-        #endregion
 
+        #endregion
 
 
         public userHomeVM()
         {
 
-            ConfirmDetailsVisibility= Visibility.Collapsed;
-            CancelDetailsVisibility= Visibility.Collapsed;
-            Details = "Hoy vamos a ver Integrales Impripias de primera especie, tambien abarcaremos el tema de sucesiones monotonas, acotadas, aritmeticas y geometricas.";
+            ConfirmDetailsVisibility = Visibility.Collapsed;
+            CancelDetailsVisibility = Visibility.Collapsed;
             TextBoxReadOnly = true;
 
             editDetailsCommand = new RelayCommand(EditDetails);
             confirmDetailsCommand = new RelayCommand(ConfirmDetails);
             canceltDetailsCommand = new RelayCommand(CancelDetails);
 
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Martes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Martes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Miercoles", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Miercoles", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Miercoles", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Miercoles", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Miercoles", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Lunes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Viernes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Viernes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Viernes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Viernes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            horario.Add(new Class("Viernes", "10:00", "12:00", "052", "6-205", "Calculo diferencial"));
-            
+            _scheduler.Add(new Class("Lunes", "10:00", "12:00", "052", "6-405", "Calculo integral", "Hoy vamos a ver Integrales Impripias de primera especie, tambien abarcaremos el tema de sucesiones monotonas, acotadas, aritmeticas y geometricas."));
+            _scheduler.Add(new Class("Lunes", "10:00", "12:00", "031", "12-302", "Calculo diferencial", "detalles 2"));
+            _scheduler.Add(new Class("Lunes", "10:00", "12:00", "032", "1-108", "Base de datos", "detalles 3"));
+            _scheduler.Add(new Class("Lunes", "10:00", "12:00", "064", "3-203", "Herramientas de programacion", "detalles 4"));
+            _scheduler.Add(new Class("Lunes", "10:00", "12:00", "054", "5-101", "Ingles I", "detalles 5"));
+            _scheduler.Add(new Class("Martes", "10:00", "12:00", "012", "2-103", "Ingles II", "detalles 6"));
+            _scheduler.Add(new Class("Martes", "10:00", "12:00", "028", "13-102", "Ingenieria del software", "detalles 7"));
 
         }
 
@@ -120,6 +109,7 @@ namespace UMS.ViewModels
             ConfirmDetailsVisibility = Visibility.Collapsed;
             CancelDetailsVisibility = Visibility.Collapsed;
             EditDetailsVisibility = Visibility.Visible;
+
         }
 
         public void CancelDetails(object parameter)
@@ -131,8 +121,6 @@ namespace UMS.ViewModels
         }
 
         #endregion
-
-
 
     }
 }

@@ -29,6 +29,9 @@
             <DataTemplate DataType="{x:Type ViewsModels:userHomeVM}">
                 <Views:UserHomeView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewsModels:AdminHomeVM}">
+                <Views:AdminHomeView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
