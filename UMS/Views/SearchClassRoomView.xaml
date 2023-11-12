@@ -18,23 +18,62 @@
 
             <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="30 20">
 
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
 
-                    <Label Content="Software:" 
-                           FontSize="15"/>
+                    <Label Content="Dia" 
+                           FontSize="15"
+                           Padding="5 0 0 5"/>
                     
-                    <TextBox Width="500" 
+                    <Label Content="*" 
+                           FontSize="15"
+                           Padding="0 0 10 5"
+                           Foreground="Red"/>
+
+                    <TextBox Width="100" 
                              FontSize="15"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
                     
+                    <Label Content="Hora Inicio" 
+                           FontSize="15"
+                           Padding="5 0 0 5"/>
+
+                    <Label Content="*" 
+                           FontSize="15"
+                           Padding="0 0 10 5"
+                           Foreground="Red"/>
+
+                    <TextBox Width="100" 
+                             FontSize="15"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+
+                    <Label Content="Hora finalizacion" 
+                           FontSize="15"
+                           Padding="5 0 0 5"/>
+
+                    <Label Content="*" 
+                           FontSize="15"
+                           Padding="0 0 10 5"
+                           Foreground="Red"/>
+
+                    <TextBox Width="100" 
+                             FontSize="15"/>
+
                 </StackPanel>
 
                 <Button Content="Buscar" 
                         Background="{StaticResource generic-button}" 
                         Style="{StaticResource Text-Button}"
                         FontSize="15"
-                        Margin="40 0 0 0"/>
+                        Margin="10 0 0 0"/>
 
                 <Button Content="Busqueda Avanzada " 
+                        Command="{Binding AdvancedSearchCommand}"
                         Background="{StaticResource generic-button}" 
                         Style="{StaticResource Text-Button}"
                         FontSize="15"
@@ -42,7 +81,7 @@
 
             </StackPanel>
 
-            <Border Name="advancedSearch" Grid.Row="1" Background="{StaticResource shadow}" Margin="600 0 20 20" Padding="10">
+            <Border Name="advancedSearch" Grid.Row="1" Background="{StaticResource shadow}" Margin="560 0 20 20" Padding="10" Visibility="{Binding AdvancedSearchVisibility}">
 
                 <StackPanel Orientation="Vertical">
 
@@ -56,13 +95,27 @@
                         <ComboBox Width="50" FontSize="15" Margin="0 0 20 0"/>
 
 
-                        <Label Content="Estado:" 
+                        <Label Content="Tematica:" 
                                BorderThickness="0"
                                Margin="0 0 5 0"
                                FontSize="15"/>
 
-                        <ComboBox Width="70" FontSize="15"/>
+                        <ComboBox Width="100" FontSize="15"/>
 
+
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="10">
+
+                        <Label Content="Software:" 
+                               FontSize="15"
+                               Background="{StaticResource alternative-background-textbox}"
+                               Padding="5"/>
+
+                        <TextBox Width="240" 
+                                 FontSize="15"
+                                 Background="{StaticResource alternative-background-textbox}"
+                                 Padding="5"/>
 
                     </StackPanel>
 
