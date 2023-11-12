@@ -6,12 +6,25 @@ using System.Threading.Tasks;
 
 namespace UMS.Models
 {
-    class ClassRoom
+    public class ClassRoom
     {
+        string code;
+        string topic;
+        int capacity;
+        string software;
 
-        string _codigo; 
+        public string Code { get => code; }
+        public string Topic { get => topic; }
+        public int Capacity { get => capacity; }
+        public string Software { get => software; }
 
-
+        public ClassRoom(string code, string topic, int capacity, string software)
+        {
+            this.code = code;
+            this.topic = topic;
+            this.capacity = capacity;
+            this.software = software;
+        }
 
     }
 }

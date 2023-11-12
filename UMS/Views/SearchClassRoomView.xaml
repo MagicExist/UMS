@@ -7,6 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="605" d:DesignWidth="954">
 
+
+    <UserControl.Resources>
+        <ItemsPanelTemplate x:Key="ClassroomPanel">
+            <WrapPanel MaxWidth="900"/>
+        </ItemsPanelTemplate>
+    </UserControl.Resources>
+    
     <ScrollViewer>
         <Grid>
 
@@ -123,27 +130,35 @@
                 
             </Border>
 
-            <ListBox Grid.Row="2" Margin="40 20 20 0">
+            <ListBox Grid.Row="2" Margin="18 20 20 0" ItemsSource="{Binding ClassRooms}" ItemsPanel="{StaticResource ClassroomPanel}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="50"/>
-                            </Grid.RowDefinitions>
-
-                            <Border Grid.Row="0" Background="{StaticResource second}">
-                                <TextBlock Text="6-405"/>
-                            </Border>
-
-                            <StackPanel Grid.Row="1">
-                                <TextBlock Text="1"/>
+                        <Border BorderBrush="{StaticResource second}" BorderThickness="2" MinHeight="150">
+                            <StackPanel Orientation="Vertical" Width="200">
+                                <Border Background="{StaticResource second}">
+                                    <TextBlock Text="{Binding Code}" Foreground="{StaticResource text}" FontWeight="SemiBold" FontSize="16" HorizontalAlignment="Center"/>
+                                </Border>
+                                <StackPanel Orientation="Vertical" Margin="8 5">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Tematica:" Foreground="{StaticResource text}" Margin="0 0 5 0" FontSize="15"/>
+                                        <TextBlock Text="{Binding Topic}" Foreground="{StaticResource text}" FontSize="15"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Capacidad:" Foreground="{StaticResource text}" Margin="0 0 5 0" FontSize="15"/>
+                                        <TextBlock Text="{Binding Capacity}" Foreground="{StaticResource text}" FontSize="15"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock Text="software:" Foreground="{StaticResource text}" Margin="0 0 5 0" FontSize="15"/>
+                                        <TextBlock Text="{Binding Software}" Foreground="{StaticResource text}" TextWrapping="Wrap" FontSize="13"/>
+                                    </StackPanel>
+                                </StackPanel>
                             </StackPanel>
-                        </Grid>
+                        </Border>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-           
+
+
         </Grid>
     </ScrollViewer>
     
