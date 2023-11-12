@@ -26,13 +26,13 @@ namespace UMS.ViewModels
         public string TxtBoxUser
         {
             get { return _txtBoxUser; }
-            set { _txtBoxUser = value; OnpropertyChanged(nameof(TxtBoxUser)); }
+            set { _txtBoxUser = value; OnpropertyChanged(); }
         }
 
         public string TxtBoxPassword
         {
             get { return _txtBoxPassword; }
-            set { _txtBoxPassword = value; OnpropertyChanged(nameof(TxtBoxPassword)); }
+            set { _txtBoxPassword = value; OnpropertyChanged(); }
         }
 
         internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
@@ -45,7 +45,7 @@ namespace UMS.ViewModels
         public void AllowMethod(object parameter)
         {
             UserVM.CurrentChildren = SearchClassRoomVM;
-            LoginStore.OnLoginAllowInvoke(UserVM);
+            LoginStore?.OnLoginAllowInvoke(UserVM);
         }
 
         public LoginVM()

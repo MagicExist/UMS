@@ -140,7 +140,7 @@
                                  Text="{Binding Details}"
                                  FontSize="14" 
                                  IsReadOnly="{Binding TextBoxReadOnly}"
-                                 Background="#1b1c24" 
+                                 Background="{StaticResource alternative-background-textbox}" 
                                  Margin="0 10 0 0" 
                                  Padding="10" 
                                  BorderThickness="0"

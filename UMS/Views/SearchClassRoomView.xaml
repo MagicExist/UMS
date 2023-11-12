@@ -5,13 +5,93 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UMS.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        
-        
-        
-        
-        
-            
-    </Grid>
+             d:DesignHeight="605" d:DesignWidth="954">
+
+    <ScrollViewer>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="30 20">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <Label Content="Software:" 
+                           FontSize="15"/>
+                    
+                    <TextBox Width="500" 
+                             FontSize="15"/>
+                    
+                </StackPanel>
+
+                <Button Content="Buscar" 
+                        Background="{StaticResource generic-button}" 
+                        Style="{StaticResource Text-Button}"
+                        FontSize="15"
+                        Margin="40 0 0 0"/>
+
+                <Button Content="Busqueda Avanzada " 
+                        Background="{StaticResource generic-button}" 
+                        Style="{StaticResource Text-Button}"
+                        FontSize="15"
+                        Margin="20 0 0 0"/>
+
+            </StackPanel>
+
+            <Border Name="advancedSearch" Grid.Row="1" Background="{StaticResource shadow}" Margin="600 0 20 20" Padding="10">
+
+                <StackPanel Orientation="Vertical">
+
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+
+                        <Label Content="Bloque:" 
+                               BorderThickness="0"
+                               Margin="0 0 5 0"
+                               FontSize="15"/>
+
+                        <ComboBox Width="50" FontSize="15" Margin="0 0 20 0"/>
+
+
+                        <Label Content="Estado:" 
+                               BorderThickness="0"
+                               Margin="0 0 5 0"
+                               FontSize="15"/>
+
+                        <ComboBox Width="70" FontSize="15"/>
+
+
+                    </StackPanel>
+
+                </StackPanel>
+                
+            </Border>
+
+            <ListBox Grid.Row="2" Margin="40 20 20 0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+
+                            <Border Grid.Row="0" Background="{StaticResource second}">
+                                <TextBlock Text="6-405"/>
+                            </Border>
+
+                            <StackPanel Grid.Row="1">
+                                <TextBlock Text="1"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+           
+        </Grid>
+    </ScrollViewer>
+    
 </UserControl>

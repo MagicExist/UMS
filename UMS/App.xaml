@@ -16,6 +16,8 @@
                 <ResourceDictionary Source="Resources/styles/ScrollBarStyle.xaml"/>
                 <ResourceDictionary Source="Resources/styles/DataGridStyle.xaml"/>
                 <ResourceDictionary Source="Resources/styles/ListViewStyle.xaml"/>
+                <ResourceDictionary Source="Resources/styles/ComboBoxStyle.xaml"/>
+                <ResourceDictionary Source="Resources/styles/ListBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type ViewsModels:UserSupportVM}">
                 <Views:UserSupportView/>
