@@ -96,9 +96,7 @@ namespace UMS.ViewModels
         public userHomeVM()
         {
 
-            ConfirmDetailsVisibility = Visibility.Collapsed;
-            CancelDetailsVisibility = Visibility.Collapsed;
-            TextBoxReadOnly = true;
+            
 
             editDetailsCommand = new RelayCommand(EditDetails);
             confirmDetailsCommand = new RelayCommand(ConfirmDetails);
@@ -108,6 +106,14 @@ namespace UMS.ViewModels
         }
 
         #region Execute Methods
+
+        public void studentViewDetailsCollapse() 
+        {
+            EditDetailsVisibility = Visibility.Collapsed;
+            ConfirmDetailsVisibility = Visibility.Collapsed;
+            CancelDetailsVisibility = Visibility.Collapsed;
+            TextBoxReadOnly = true;
+        }
 
         public void loadEscheduler(User currentUser) 
         {
