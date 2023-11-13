@@ -25,7 +25,13 @@ namespace UMS.Models.ModelsDB
         private string day;
 
 
-
+        /// <summary>
+        /// Retrieves a list of classes from the database using the specified SqlConnection.
+        /// </summary>
+        /// <param name="currentConnection">The SqlConnection object for database interaction.</param>
+        /// <returns>
+        /// A List of <see cref="Class"/> objects representing the classes retrieved from the database.
+        /// </returns>
         public List<Class> loadClass(SqlConnection currentConnection) 
         {
             _listClass = new List<Class>();

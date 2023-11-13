@@ -26,8 +26,8 @@ namespace UMS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JOHHAN\\SQLEXPRESS;Initial Catalog=UMS;Integrated Security=True;TrustS" +
-            "erverCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=Johhan;Initial Catalog=UMS;Integrated Security=True;TrustServerCertif" +
+            "icate=True")]
         public string StringConnection {
             get {
                 return ((string)(this["StringConnection"]));

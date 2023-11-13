@@ -18,6 +18,16 @@ namespace UMS.Models.ModelsDB
         private User _user;
         private int type;
 
+
+        /// <summary>
+        /// Validates user login credentials using the specified SqlConnection.
+        /// </summary>
+        /// <param name="currentConnection">The SqlConnection object for database interaction.</param>
+        /// <param name="email">The email address of the user.</param>
+        /// <param name="password">The password of the user.</param>
+        /// <returns>
+        /// A tuple containing a <see cref="User"/> object representing the authenticated user and an <see cref="int"/> representing the user type.
+        /// </returns>
         public (User, int) allowLogin(SqlConnection currentConnection, string email, string password)
         {
             _command = new SqlCommand("FiltrarUsuario", currentConnection);
