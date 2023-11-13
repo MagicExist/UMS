@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,31 @@ using System.Threading.Tasks;
 using System.Windows;
 using UMS.Core;
 using UMS.Models;
+using UMS.Models.ModelsDB;
+using UMS.Models.UsersModels;
 
 namespace UMS.ViewModels
 {
     class userHomeVM : ObservableObjects
     {
+        #region variables for logic management
+        private User _currentUser;
+        private string _studentName;
+        public User CurrentUser 
+        {
+            get { return _currentUser; }
+            set 
+            {
+                _currentUser = value;
+                StudentName = _currentUser.Name;
+            }
+        }
+            
+        public string StudentName { get { return _studentName; } set { _studentName = value;OnpropertyChanged(); } }
+
+        #endregion
+
+
         #region variables for interface management
         List<Class> _scheduler = new List<Class>();
         public List<Class> Scheduler
@@ -81,14 +102,12 @@ namespace UMS.ViewModels
             confirmDetailsCommand = new RelayCommand(ConfirmDetails);
             canceltDetailsCommand = new RelayCommand(CancelDetails);
 
-            _scheduler.Add(new Class("Lunes", "10:00", "12:00", "052", "6-405", "Calculo integral", "Hoy vamos a ver Integrales Impripias de primera especie, tambien abarcaremos el tema de sucesiones monotonas, acotadas, aritmeticas y geometricas."));
-            _scheduler.Add(new Class("Lunes", "10:00", "12:00", "031", "12-302", "Calculo diferencial", "detalles 2"));
-            _scheduler.Add(new Class("Lunes", "10:00", "12:00", "032", "1-108", "Base de datos", "detalles 3"));
-            _scheduler.Add(new Class("Lunes", "10:00", "12:00", "064", "3-203", "Herramientas de programacion", "detalles 4"));
-            _scheduler.Add(new Class("Lunes", "10:00", "12:00", "054", "5-101", "Ingles I", "detalles 5"));
-            _scheduler.Add(new Class("Martes", "10:00", "12:00", "012", "2-103", "Ingles II", "detalles 6"));
-            _scheduler.Add(new Class("Martes", "10:00", "12:00", "028", "13-102", "Ingenieria del software", "detalles 7"));
-
+            #region LoadScheduler
+            OpenDbConnection openDbConnection = new OpenDbConnection();
+            ClassDB classDB = new ClassDB();
+            SqlConnection currentConnection = openDbConnection.openConnection();
+            horario = classDB.loadClass(currentConnection);
+            #endregion
         }
 
         #region Execute Methods

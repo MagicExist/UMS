@@ -63,7 +63,7 @@
                             Command="{Binding AllowAccess}"/>
 
                         <TextBlock Name="error" 
-                                   Text="{Binding ElementName=user, Path=Text, Mode=TwoWay}" 
+                                   Text="{Binding LabelError}" 
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"
                                    Foreground="{StaticResource error}"/>
