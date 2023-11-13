@@ -106,7 +106,7 @@ namespace UMS.ViewModels
             OpenDbConnection openDbConnection = new OpenDbConnection();
             ClassDB classDB = new ClassDB();
             SqlConnection currentConnection = openDbConnection.openConnection();
-            horario = classDB.loadClass(currentConnection);
+            _scheduler = classDB.loadClass(currentConnection);
             #endregion
         }
 
