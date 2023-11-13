@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using UMS.Core;
 using UMS.Models;
 using UMS.Models.ModelsDB;
@@ -24,6 +25,7 @@ namespace UMS.ViewModels
             {
                 _currentUser = value;
                 StudentName = _currentUser.Name;
+                loadEscheduler(_currentUser);
             }
         }
             
@@ -102,15 +104,20 @@ namespace UMS.ViewModels
             confirmDetailsCommand = new RelayCommand(ConfirmDetails);
             canceltDetailsCommand = new RelayCommand(CancelDetails);
 
+            
+        }
+
+        #region Execute Methods
+
+        public void loadEscheduler(User currentUser) 
+        {
             #region LoadScheduler
             OpenDbConnection openDbConnection = new OpenDbConnection();
             ClassDB classDB = new ClassDB();
             SqlConnection currentConnection = openDbConnection.openConnection();
-            _scheduler = classDB.loadClass(currentConnection);
+            _scheduler = classDB.loadClass(currentConnection,currentUser);
             #endregion
         }
-
-        #region Execute Methods
 
         public void EditDetails(object parameter) 
         {

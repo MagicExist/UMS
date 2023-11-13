@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UMS.Models.UsersModels;
 
 namespace UMS.Models.ModelsDB
 {
@@ -32,7 +33,7 @@ namespace UMS.Models.ModelsDB
         /// <returns>
         /// A List of <see cref="Class"/> objects representing the classes retrieved from the database.
         /// </returns>
-        public List<Class> loadClass(SqlConnection currentConnection) 
+        public List<Class> loadClass(SqlConnection currentConnection,User currentUser) 
         {
             _listClass = new List<Class>();
             string query = 
@@ -43,9 +44,11 @@ namespace UMS.Models.ModelsDB
                 "Id_Grupo," +
                 "Codigo_Salon," +
                 "(select Nombre from Asignaturas where Codigo = Clases.Codigo_Asignatura) as asignatura " +
-                "from Clases";
+                "from Clases " +
+                "where Id_Grupo = (select Id from Grupos where IdEstudiante = @IdCurrentUser)";
 
             _command = new SqlCommand(query,currentConnection);
+            _command.Parameters.AddWithValue("@IdCurrentUser",currentUser.Document);
             _reader = _command.ExecuteReader();
             if (_reader.HasRows) 
             {
