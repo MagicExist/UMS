@@ -36,7 +36,6 @@ namespace UMS.Views
                 course.Text = SelectedClass.Course;
                 group.Text = SelectedClass.IdGroup;
                 classroom.Text = SelectedClass.IdClassRoom;
-                detailClass.Text = SelectedClass.Details;
             }
         }
     }
