@@ -18,6 +18,7 @@ namespace UMS.ViewModels
         private UserSupportVM _userSupportVM;
         private userHomeVM _userHomeVM;
         private AdminHomeVM _adminHomeVM;
+        private SearchClassRoomVM _searchClassRoomVM;
 
         public RelayCommand AllowAccess { get; set; }
 
@@ -25,13 +26,13 @@ namespace UMS.ViewModels
         public string TxtBoxUser
         {
             get { return _txtBoxUser; }
-            set { _txtBoxUser = value; OnpropertyChanged(nameof(TxtBoxUser)); }
+            set { _txtBoxUser = value; OnpropertyChanged(); }
         }
 
         public string TxtBoxPassword
         {
             get { return _txtBoxPassword; }
-            set { _txtBoxPassword = value; OnpropertyChanged(nameof(TxtBoxPassword)); }
+            set { _txtBoxPassword = value; OnpropertyChanged(); }
         }
 
         internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
@@ -39,11 +40,12 @@ namespace UMS.ViewModels
         internal UserSupportVM UserSupportVM { get => _userSupportVM; set => _userSupportVM = value; }
         internal userHomeVM UserHomeVM { get => _userHomeVM; set => _userHomeVM = value; }
         internal AdminHomeVM AdminHomeVM { get => _adminHomeVM; set => _adminHomeVM = value; }
+        internal SearchClassRoomVM SearchClassRoomVM { get => _searchClassRoomVM; set => _searchClassRoomVM = value; }
 
         public void AllowMethod(object parameter)
         {
-            UserVM.CurrentChildren = AdminHomeVM;
-            LoginStore.OnLoginAllowInvoke(UserVM);
+            UserVM.CurrentChildren = SearchClassRoomVM;
+            LoginStore?.OnLoginAllowInvoke(UserVM);
         }
 
         public LoginVM()

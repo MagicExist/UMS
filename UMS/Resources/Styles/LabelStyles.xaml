@@ -4,7 +4,6 @@
     <Style TargetType="Label">
         <Setter Property="Foreground" Value="{StaticResource text}"/>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Opacity" Value="0.8"/>
         <Setter Property="Padding" Value="0 0 0 0"/>
         <Setter Property="BorderBrush" Value="{StaticResource second}"/>
         <Setter Property="BorderThickness" Value="0 0 0 3"/>
