@@ -21,7 +21,7 @@ namespace UMS.Views
     /// </summary>
     public partial class SearchClassRoomView : UserControl
     {
-        ClassRoom _selectedClass;
+        public ClassRoom SelectedClassRoom { get; set; }
 
         public SearchClassRoomView()
         {
@@ -38,10 +38,10 @@ namespace UMS.Views
 
             if (Classrooms.SelectedItem != null)
             {
-                _selectedClass = (ClassRoom)Classrooms.SelectedItem;
-                ClassRoomCode.Text = _selectedClass.Code;
+                SelectedClassRoom = (ClassRoom)Classrooms.SelectedItem;
+                ClassRoomCode.Text = SelectedClassRoom.Code;
 
-                if (_selectedClass.Status == "Libre")
+                if (SelectedClassRoom.Status == "Libre")
                 {
                     AssignGroup.Visibility = Visibility.Visible;
                 }

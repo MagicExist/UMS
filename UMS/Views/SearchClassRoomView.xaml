@@ -28,49 +28,49 @@
 
                 <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
 
-                    <Label Content="Dia" 
-                           FontSize="15"
-                           Padding="5 0 0 5"/>
-                    
-                    <Label Content="*" 
-                           FontSize="15"
-                           Padding="0 0 10 5"
-                           Foreground="Red"/>
+                    <TextBlock Text="Dia" 
+                               FontSize="15"
+                               Foreground="{StaticResource text}"
+                               Padding="5 0 0 5"/>
 
-                    <TextBox Width="100" 
-                             FontSize="15"/>
+                    <TextBlock Text="*" 
+                               FontSize="15"
+                               Padding="0 0 10 5"
+                               Foreground="Red"/>
 
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
-                    
-                    <Label Content="Hora Inicio" 
-                           FontSize="15"
-                           Padding="5 0 0 5"/>
-
-                    <Label Content="*" 
-                           FontSize="15"
-                           Padding="0 0 10 5"
-                           Foreground="Red"/>
-
-                    <TextBox Width="100" 
-                             FontSize="15"/>
+                    <ComboBox Width="100" FontSize="15" ItemsSource="{Binding Days}"/>
 
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
 
-                    <Label Content="Hora finalizacion" 
-                           FontSize="15"
-                           Padding="5 0 0 5"/>
+                    <TextBlock Text="Hora inicio" 
+                               FontSize="15"
+                               Foreground="{StaticResource text}"
+                               Padding="5 0 0 5"/>
 
-                    <Label Content="*" 
-                           FontSize="15"
-                           Padding="0 0 10 5"
-                           Foreground="Red"/>
+                    <TextBlock Text="*" 
+                               FontSize="15"
+                               Padding="0 0 10 5"
+                               Foreground="Red"/>
 
-                    <TextBox Width="100" 
-                             FontSize="15"/>
+                    <ComboBox Width="100" FontSize="15" ItemsSource="{Binding StartHours}"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+
+                    <TextBlock Text="Hora finalizacion" 
+                               FontSize="15"
+                               Foreground="{StaticResource text}"
+                               Padding="5 0 0 5"/>
+
+                    <TextBlock Text="*" 
+                               FontSize="15"
+                               Padding="0 0 10 5"
+                               Foreground="Red"/>
+
+                    <ComboBox Width="100" FontSize="15" ItemsSource="{Binding EndHours}"/>
 
                 </StackPanel>
 
@@ -142,7 +142,7 @@
                 
             </Border>
 
-            <Border Name="AssignGroup" Grid.Row="2" Background="{StaticResource shadow}" Margin="30 10" Padding="10" Visibility="Collapsed" MaxWidth="500" HorizontalAlignment="Left">
+            <Border Name="AssignGroup" Grid.Row="2" Background="{StaticResource shadow}" Margin="30 10" Padding="10" Visibility="Collapsed" MaxWidth="600" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" Margin="20 10">
                     
                     <StackPanel Orientation="Vertical" Margin="10 0 40 0" HorizontalAlignment="Center">
@@ -187,7 +187,7 @@
             <ListBox Name="Classrooms" Grid.Row="3" Margin="18 20 20 0" ItemsSource="{Binding ClassRooms}" ItemsPanel="{StaticResource ClassroomPanel}" SelectionChanged="Classrooms_SelectionChanged">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Border BorderBrush="{StaticResource second}" BorderThickness="2" MinHeight="150">
+                        <Border Background="{StaticResource primary}" BorderBrush="{StaticResource second}" BorderThickness="0" MinHeight="150">
                             <StackPanel Orientation="Vertical" Width="200">
                                 <Border Background="{StaticResource second}">
                                     <TextBlock Text="{Binding Code}" Foreground="{StaticResource text}" FontWeight="SemiBold" FontSize="16" HorizontalAlignment="Center"/>
@@ -210,9 +210,7 @@
                                         <TextBlock Text="{Binding Software}" Foreground="{StaticResource text}" TextWrapping="Wrap" FontSize="13"/>
                                     </StackPanel>
                                 </StackPanel>
-
-                                <!--<Button Name="Assing" Content="Asignar" Click="Assing_Click" Background="{StaticResource generic-button}" Style="{StaticResource Text-Button}" FontSize="14" Visibility="Colla-->
-
+                                
                             </StackPanel>
                         </Border>
                     </DataTemplate>

@@ -22,7 +22,7 @@ namespace UMS.Views
     public partial class AdminHomeView : UserControl
     {
 
-        public Request item { get; set; }
+        public Request SelectedRequest { get; set; }
 
         public AdminHomeView()
         {
@@ -31,13 +31,11 @@ namespace UMS.Views
 
         private void RequestsList_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            //ListView listRequests = (ListView)sender;
-
             if (RequestsList.SelectedItem != null) 
             { 
-                item= (Request)RequestsList.SelectedItem;
-                DateSendRequests.Text = item.Date;
-                subjectRequests.Text = item.Subject;
+                SelectedRequest= (Request)RequestsList.SelectedItem;
+                DateSendRequests.Text = SelectedRequest.Date;
+                subjectRequests.Text = SelectedRequest.Subject;
             }
         }
     }

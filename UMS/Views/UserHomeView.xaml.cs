@@ -21,7 +21,7 @@ namespace UMS.Views
     /// </summary>
     public partial class UserHomeView : UserControl
     {
-        public Class Item { get; set; } 
+        public Class SelectedClass { get; set; } 
 
         public UserHomeView()
         {
@@ -30,16 +30,13 @@ namespace UMS.Views
 
         private void ClassList_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
-            ListView listClass = (ListView)sender; 
-
             if (ClassList.SelectedItem != null)
             {
-                Item = (Class)listClass.SelectedItem;
-                course.Text = Item.Course;
-                group.Text = Item.IdGroup;
-                classroom.Text = Item.IdClassRoom;
-                detailClass.Text = Item.Details;
+                SelectedClass = (Class)ClassList.SelectedItem;
+                course.Text = SelectedClass.Course;
+                group.Text = SelectedClass.IdGroup;
+                classroom.Text = SelectedClass.IdClassRoom;
+                detailClass.Text = SelectedClass.Details;
             }
         }
     }
