@@ -57,29 +57,35 @@ namespace UMS.Models.ModelsDB
 
             _reader.Close();
 
-            
 
-            string query  = "select Tipo from Usuarios where Id = @document";
-
-            _command.CommandText = query;
-            _command.CommandType = CommandType.Text;
-            _command.Parameters.AddWithValue("@document", _user.Document);
-
-            _reader = _command.ExecuteReader();
-            if (_reader.HasRows)
+            if (_user != null) 
             {
-                while (_reader.Read())
+                string query = "select Tipo from Usuarios where Id = @document";
+
+                _command.CommandText = query;
+                _command.CommandType = CommandType.Text;
+                _command.Parameters.AddWithValue("@document", _user.Document);
+
+                _reader = _command.ExecuteReader();
+                if (_reader.HasRows)
                 {
-                    byte tempType = _reader.GetByte(0);
-                    type = Convert.ToInt32(tempType);
+                    while (_reader.Read())
+                    {
+                        byte tempType = _reader.GetByte(0);
+                        type = Convert.ToInt32(tempType);
+                    }
                 }
+                else
+                {
+
+                }
+
+                return (_user, type);
             }
-            else
+            else 
             {
-
+                throw new NullReferenceException("Correo o Clave incorrectos");
             }
-
-            return (_user,type);
         }
     }
 }

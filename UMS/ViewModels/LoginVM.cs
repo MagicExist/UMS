@@ -15,6 +15,7 @@ namespace UMS.ViewModels
     {
         private string _txtBoxUser;
         private string _txtBoxPassword;
+        private string _labelError;
 
         private LoginStore _loginStore;
         private UserVM _userVM;
@@ -33,14 +34,22 @@ namespace UMS.ViewModels
         public string TxtBoxUser
         {
             get { return _txtBoxUser; }
-            set { _txtBoxUser = value; OnpropertyChanged(nameof(TxtBoxUser)); }
+            set { _txtBoxUser = value; OnpropertyChanged(); }
         }
 
         public string TxtBoxPassword
         {
             get { return _txtBoxPassword; }
-            set { _txtBoxPassword = value; OnpropertyChanged(nameof(TxtBoxPassword)); }
+            set { _txtBoxPassword = value; OnpropertyChanged(); }
         }
+
+        public string LabelError 
+        {
+            get { return _labelError; }
+            set { _labelError = value; OnpropertyChanged(); }
+        }
+
+
 
         internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
         internal UserVM UserVM { get => _userVM; set => _userVM = value; }
@@ -49,20 +58,39 @@ namespace UMS.ViewModels
 
         public void AllowMethod(object parameter)
         {
-            OpenDbConnection openDbConnection = new OpenDbConnection();
-            LoginDB loginDB = new LoginDB();
-            SqlConnection currentConnection = openDbConnection.openConnection();
-            (User currentUser,int type) = loginDB.allowLogin(currentConnection,TxtBoxUser,TxtBoxPassword);
-
-            switch ((userType)type) 
+            if ((TxtBoxUser != null && TxtBoxPassword != null) && (TxtBoxUser != string.Empty && TxtBoxPassword != string.Empty)) 
             {
-                case userType.Student:
-                    UserHomeVM.CurrentUser = currentUser;
-                    UserVM.CurrentChildren = UserHomeVM;
-                    LoginStore.OnLoginAllowInvoke(UserVM,currentUser);
-                    break;
+                try 
+                {
+                    OpenDbConnection openDbConnection = new OpenDbConnection();
+                    LoginDB loginDB = new LoginDB();
+                    SqlConnection currentConnection = openDbConnection.openConnection();
+                    (User currentUser, int type) = loginDB.allowLogin(currentConnection, TxtBoxUser, TxtBoxPassword);
+
+                    switch ((userType)type)
+                    {
+                        case userType.Student:
+                            UserHomeVM.CurrentUser = currentUser;
+                            UserVM.CurrentChildren = UserHomeVM;
+                            LoginStore.OnLoginAllowInvoke(UserVM, currentUser);
+                            break;
+                    }
+                    currentConnection.Close();
+                }
+                catch (NullReferenceException ex)
+                {
+                    LabelError = ex.Message;
+                }
+                catch (Exception ex)
+                {
+                    LabelError = ex.Message;
+                }
             }
-            currentConnection.Close();
+            else 
+            {
+                LabelError = "Los campos no pueden estar vacios";
+            }
+           
         }
 
         public LoginVM()
