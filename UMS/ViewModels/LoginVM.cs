@@ -75,6 +75,7 @@ namespace UMS.ViewModels
                     {
                         case userType.Student:
                             UserHomeVM.CurrentUser = currentUser;
+                            UserHomeVM.studentViewDetailsCollapse();
                             UserVM.CurrentChildren = UserHomeVM;
                             LoginStore.OnLoginAllowInvoke(UserVM, currentUser);
                             break;
