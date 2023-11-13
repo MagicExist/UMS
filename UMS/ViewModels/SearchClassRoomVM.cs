@@ -30,6 +30,7 @@ namespace UMS.ViewModels
             { _advancedSearchVisibility = value; OnpropertyChanged(); }
         }
 
+
         #endregion
 
         #region commands
@@ -42,23 +43,15 @@ namespace UMS.ViewModels
             AdvancedSearchVisibility = Visibility.Collapsed;
             AdvancedSearchCommand = new RelayCommand(ShowAdvancedSearch);
 
-
-            _classRooms.Add(new ClassRoom("13-204", "Basica", 20, "Visual studio"));
-            _classRooms.Add(new ClassRoom("13-208", "Basica", 20, "Visual studio, SQL Server, MongoDB, Redis, Visual studio code, AutoCad, Rstudio, Pseint"));
-            _classRooms.Add(new ClassRoom("1-102", "Basica", 15, "proteus"));
-            _classRooms.Add(new ClassRoom("6-205", "Basica", 35, "No tiene"));
-            _classRooms.Add(new ClassRoom("13-204", "Basica", 20, "Visual studio"));
-            _classRooms.Add(new ClassRoom("1-102", "Basica", 15, "proteus"));
-            _classRooms.Add(new ClassRoom("13-208", "Basica", 20, "Visual studio, SQL Server, MongoDB, Redis, Visual studio code"));
-            _classRooms.Add(new ClassRoom("6-205", "Basica", 35, "No tiene"));
-            _classRooms.Add(new ClassRoom("13-208", "Basica", 20, "Visual studio, SQL Server, MongoDB, Redis, Visual studio code"));
-            _classRooms.Add(new ClassRoom("13-204", "Basica", 20, "Visual studio"));
-            _classRooms.Add(new ClassRoom("1-102", "Basica", 15, "proteus"));
-            _classRooms.Add(new ClassRoom("6-205", "Basica", 35, "No tiene"));
-            _classRooms.Add(new ClassRoom("13-204", "Basica", 20, "Visual studio"));
-            _classRooms.Add(new ClassRoom("1-102", "Basica", 15, "proteus"));
-            _classRooms.Add(new ClassRoom("6-205", "Basica", 35, "No tiene"));
-            _classRooms.Add(new ClassRoom("13-208", "Basica", 20, "Visual studio, SQL Server, MongoDB, Redis, Visual studio code"));
+            _classRooms.Add(new ClassRoom("13-204", "Basica", 20, "Libre", "Visual studio"));
+            _classRooms.Add(new ClassRoom("13-208", "Basica", 20, "Ocupado", "Visual studio, SQL Server, MongoDB, Redis, Visual studio code, AutoCad, Rstudio, Pseint"));
+            _classRooms.Add(new ClassRoom("1-102", "Basica", 15, "Ocupado", "proteus"));
+            _classRooms.Add(new ClassRoom("6-205", "Basica", 35, "Libre", "No tiene"));
+            _classRooms.Add(new ClassRoom("13-204", "Basica", 20, "Ocupado", "Visual studio"));
+            _classRooms.Add(new ClassRoom("1-102", "Basica", 15, "Libre", "proteus"));
+            _classRooms.Add(new ClassRoom("13-208", "Basica", 20, "Ocupado", "Visual studio, SQL Server, MongoDB, Redis, Visual studio code"));
+            _classRooms.Add(new ClassRoom("6-205", "Basica", 35, "Libre", "No tiene"));
+            _classRooms.Add(new ClassRoom("13-208", "Basica", 20, "Ocupado", "Visual studio, SQL Server, MongoDB, Redis, Visual studio code"));
 
 
         }

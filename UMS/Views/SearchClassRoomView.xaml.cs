@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UMS.Models;
 
 namespace UMS.Views
 {
@@ -20,9 +21,36 @@ namespace UMS.Views
     /// </summary>
     public partial class SearchClassRoomView : UserControl
     {
+        ClassRoom _selectedClass;
+
         public SearchClassRoomView()
         {
             InitializeComponent();
+        }
+
+        private void cancelAssign_Click(object sender, RoutedEventArgs e)
+        {
+            AssignGroup.Visibility = Visibility.Collapsed;
+        }
+
+        private void Classrooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (Classrooms.SelectedItem != null)
+            {
+                _selectedClass = (ClassRoom)Classrooms.SelectedItem;
+                ClassRoomCode.Text = _selectedClass.Code;
+
+                if (_selectedClass.Status == "Libre")
+                {
+                    AssignGroup.Visibility = Visibility.Visible;
+                }
+                else 
+                {
+                    AssignGroup.Visibility = Visibility.Collapsed;
+                }
+
+            }
         }
     }
 }
