@@ -13,6 +13,15 @@ namespace UMS.ViewModels
     {
         #region variables for interface management
 
+        List<string> days = new List<string> { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
+        public List<string> Days { get => days; }
+
+        List<string> startHours = new List<string> {"6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" };
+        public List<string> StartHours { get => startHours; }
+
+        List<string> endtHours = new List<string> {"7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", };
+        public List<string> EndHours { get => endtHours; }
+
         List<ClassRoom> _classRooms = new List<ClassRoom>();
         public List<ClassRoom> ClassRooms 
         {
@@ -35,7 +44,7 @@ namespace UMS.ViewModels
 
         #region commands
         public RelayCommand AdvancedSearchCommand { get; set; }
-
+        
         #endregion
 
         public SearchClassRoomVM()
