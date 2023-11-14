@@ -6,11 +6,32 @@ using System.Threading.Tasks;
 using System.Windows;
 using UMS.Core;
 using UMS.Models;
+using UMS.Models.UsersModels;
 
 namespace UMS.ViewModels
 {
     internal class AdminHomeVM : ObservableObjects
     {
+        #region variables for logic management
+        private User _currentUser;
+        private string _adminName;
+
+        public User CurrentUser
+        {
+            get { return _currentUser; }
+            set
+            {
+                _currentUser = value;
+                AdminName = _currentUser.Name;
+            }
+        }
+
+        public string AdminName { get { return _adminName; } set { _adminName = value; OnpropertyChanged(); } }
+
+
+        #endregion
+
+
         #region variables for interface management
 
         List<Request> _requests= new List<Request>();
