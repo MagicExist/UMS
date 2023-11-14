@@ -16,9 +16,16 @@ namespace UMS.ViewModels
     class userHomeVM : ObservableObjects
     {
         #region variables for logic management
+        enum userType
+        {
+            Admin = 1,
+            Professor = 2,
+            Student = 3
+        }
         private User _currentUser;
         private string _studentName;
         private string _userType;
+        private int _tempUserType;
         public User CurrentUser 
         {
             get { return _currentUser; }
@@ -30,8 +37,25 @@ namespace UMS.ViewModels
             }
         }
 
+        public int TempUserType { get {return _tempUserType;} set{ _tempUserType = value; UserType = ""; } }
 
-        public string UserType { get { return _userType; } set { _userType = value; OnpropertyChanged(); } }
+        public string UserType 
+        {
+            get { return _userType;}
+            set 
+            {
+                switch ((userType)_tempUserType)
+                {
+                    case userType.Student:
+                        _userType = "Estudiante";
+                        break;
+                    case userType.Professor:
+                        _userType = "Profesor";
+                        break;
+                }
+            }
+        }
+            
         public string StudentName { get { return _studentName; } set { _studentName = value; OnpropertyChanged(); } }
 
         #endregion
@@ -129,7 +153,7 @@ namespace UMS.ViewModels
             OpenDbConnection openDbConnection = new OpenDbConnection();
             ClassDB classDB = new ClassDB();
             SqlConnection currentConnection = openDbConnection.openConnection();
-            _scheduler = classDB.loadClass(currentConnection,currentUser);
+            _scheduler = classDB.loadClass(currentConnection,currentUser,TempUserType);
             #endregion
         }
 

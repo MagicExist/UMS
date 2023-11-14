@@ -19,9 +19,17 @@ namespace UMS.Models.ModelsDB
             Friday = 5,
             Saturday = 6
         }
+        enum userType
+        {
+            Admin = 1,
+            Professor = 2,
+            Student = 3
+        }
+
         private SqlCommand _command;
         private SqlDataReader _reader;
         private List<Class> _listClass;
+        private string query;
 
         private string day;
 
@@ -33,20 +41,39 @@ namespace UMS.Models.ModelsDB
         /// <returns>
         /// A List of <see cref="Class"/> objects representing the classes retrieved from the database.
         /// </returns>
-        public List<Class> loadClass(SqlConnection currentConnection,User currentUser) 
+        public List<Class> loadClass(SqlConnection currentConnection,User currentUser,int currentUserType) 
         {
             _listClass = new List<Class>();
-            string query = 
-                "select " +
-                "Dia," +
-                "CONVERT(time,Hora_Inicio) as hora_inicio," +
-                "CONVERT(time,Hora_Final) as hora_final," +
-                "Id_Grupo," +
-                "Codigo_Salon," +
-                "(select Nombre from Asignaturas where Codigo = Clases.Codigo_Asignatura) as asignatura, " +
-                "Detalles " +
-                "from Clases " +
-                "where Id_Grupo in (select IdGrupo from GruposEstudiantes where IdEstudiante = @IdCurrentUser)";
+
+
+            switch ((userType)currentUserType)
+            {
+                case userType.Student:
+                    query = 
+                        "select " +
+                        "Dia," +
+                        "CONVERT(time,Hora_Inicio) as hora_inicio," +
+                        "CONVERT(time,Hora_Final) as hora_final," +
+                        "Id_Grupo," +
+                        "Codigo_Salon," +
+                        "(select Nombre from Asignaturas where Codigo = Clases.Codigo_Asignatura) as asignatura, " +
+                        "Detalles " +
+                        "from Clases " +
+                        "where Id_Grupo in (select IdGrupo from GruposEstudiantes where IdEstudiante = @IdCurrentUser)";
+                    break;
+                case userType.Professor:
+                    query = "select " +
+                        "Dia," +
+                        "CONVERT(time,Hora_Inicio) as hora_inicio," +
+                        "CONVERT(time,Hora_Final) as hora_final," +
+                        "Id_Grupo," +
+                        "Codigo_Salon," +
+                        "(select Nombre from Asignaturas where Codigo = Clases.Codigo_Asignatura) as asignatura, " +
+                        "Detalles " +
+                        "from Clases " +
+                        "where Id_Grupo in (select IdGrupo from Grupos where IdProfesor = @IdCurrentUser)";
+                    break;
+            }
 
             _command = new SqlCommand(query,currentConnection);
             _command.Parameters.AddWithValue("@IdCurrentUser",currentUser.Document);
