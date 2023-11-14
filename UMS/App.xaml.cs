@@ -37,6 +37,11 @@ namespace UMS
             loginVM.AdminHomeVM= adminHomeVM;
             loginVM.SearchClassRoomVM = searchClassRoomVM;
 
+            userVM.AdminHomeVM= adminHomeVM;
+            userVM.UserSupportVM= userSupportVM;
+            userVM.UserHomeVM = userHomeVM;
+            userVM.SearchClassRoomVM = searchClassRoomVM;
+
 
 
 
