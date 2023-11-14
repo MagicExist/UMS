@@ -24,7 +24,7 @@
 
         <StackPanel Grid.Row="0" Orientation="Vertical" Margin="40 20">
 
-            <TextBlock Text="Jhonatan Salazar Betancur"
+            <TextBlock Text="{Binding AdminName}"
                        Foreground="{StaticResource text}"
                        FontSize="32"/>
 
