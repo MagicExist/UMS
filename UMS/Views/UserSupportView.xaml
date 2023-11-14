@@ -53,8 +53,8 @@
                                     </StackPanel>
                                     <Border Name="ReplyRequest">
                                         <StackPanel Orientation="Horizontal" Margin="10 2 0 2" >
-                                            <TextBlock Text="Respuesta:" Margin="0 0 10 0" Width="80" FontSize="15" Padding="2"/>
-                                            <TextBlock Text="" Margin="0 0 10 0" Width="600" TextWrapping="Wrap" FontSize="15" Padding="2"/>
+                                            <TextBlock Text="Respuesta:" Margin="0 0 10 0" Width="80" FontSize="15" Padding="2" FontWeight="SemiBold"/>
+                                            <TextBlock Text="{Binding Reply}" Margin="0 0 10 0" Width="600" TextWrapping="Wrap" FontSize="15" Padding="2"/>
                                         </StackPanel>
                                     </Border>
                                 </StackPanel>

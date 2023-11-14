@@ -50,6 +50,21 @@ namespace UMS.Views
                 DetailsRequests.Text = SelectedRequest.Details;
                 CodeNameRequests.Text = SelectedRequest.UserDocument;
                 UserTypeRequests.Text = SelectedRequest.UserType;
+                ReplyRequestsView.Text = SelectedRequest.Reply;
+
+
+                if (SelectedRequest.Status == "Respondida")
+                {
+                    ReplyView.Visibility = Visibility.Visible;
+                    SendButton.Visibility = Visibility.Collapsed;
+                }
+                else 
+                {
+                    ReplyView.Visibility = Visibility.Collapsed;
+                    SendButton.Visibility = Visibility.Visible;
+                }
+
+
             }
         }
     }

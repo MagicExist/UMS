@@ -148,6 +148,20 @@
 
                         </StackPanel>
 
+                        <StackPanel Name="ReplyView" Orientation="Vertical" Margin="0 10 0 0">
+
+                            <TextBlock Text="Respuesta:" 
+                                       Foreground="{StaticResource text}"
+                                       FontSize="14"
+                                       FontWeight="Bold"/>
+
+                            <TextBlock Name="ReplyRequestsView"
+                                       Foreground="{StaticResource text}"
+                                       FontSize="14"
+                                       TextWrapping="Wrap"/>
+
+                        </StackPanel>
+
                         <Grid Margin="0 10">
 
                             <TextBox Name="ReplyRequests" 
@@ -182,7 +196,8 @@
                                     Width="100"
                                     Visibility="{Binding SendButtonVisibility}"/>
 
-                            <Button Content="Responder"
+                            <Button Name="SendButton" 
+                                    Content="Responder"
                                     Command="{Binding ReplyCommand}"
                                     Background="{StaticResource generic-button}" 
                                     Style="{StaticResource Text-Button}"
