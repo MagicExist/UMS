@@ -36,8 +36,9 @@ namespace UMS.ViewModels
 
         #endregion
 
-
         #region variables for interface management
+
+        // List storing a user's schedule
         List<Class> _scheduler = new List<Class>();
         public List<Class> Scheduler
         {
@@ -45,6 +46,7 @@ namespace UMS.ViewModels
             set { _scheduler = value; OnpropertyChanged(); }
         }
 
+        // Variables for manipulating the visibility of the controllers in the view 
         Visibility _editDetailsVisibility;
         public Visibility EditDetailsVisibility 
         {
@@ -66,6 +68,7 @@ namespace UMS.ViewModels
             set { _cancelDetailsVisibility = value; OnpropertyChanged(); }
         }
 
+        // variable to store the new details
         private string _details;
         public string Details
         {
@@ -73,6 +76,7 @@ namespace UMS.ViewModels
             set { _details = value; OnpropertyChanged(); }
         }
 
+        // Variable to control the reading of details
         private bool _textBoxReadOnly;
 
         public bool TextBoxReadOnly
@@ -94,7 +98,6 @@ namespace UMS.ViewModels
 
 
         #endregion
-
 
         public userHomeVM()
         {
@@ -130,6 +133,11 @@ namespace UMS.ViewModels
             #endregion
         }
 
+        /// <summary>
+        /// Enters edit mode for the details, allowing changes.
+        /// Hides the "Edit" button and shows the "Confirm" and "Cancel" buttons.
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         public void EditDetails(object parameter) 
         {
             TextBoxReadOnly = false;
@@ -138,6 +146,11 @@ namespace UMS.ViewModels
             CancelDetailsVisibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Confirms the edited details, sends the new information to the database, and updates the display.
+        /// Hides the "Confirm" and "Cancel" buttons and shows the "Edit" button.
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         public void ConfirmDetails(object parameter)
         {
             // send the new details information to the database and update the text of the details in the texbox
@@ -149,6 +162,11 @@ namespace UMS.ViewModels
 
         }
 
+        /// <summary>
+        /// Cancels the edit operation, discards changes, and reverts to read-only mode.
+        /// Hides the "Confirm" and "Cancel" buttons and shows the "Edit" button.
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         public void CancelDetails(object parameter)
         {
             TextBoxReadOnly = true;

@@ -28,32 +28,50 @@
                 <TextBlock Text="Lista de Peticiones" 
                        Foreground="{StaticResource text}"
                        FontSize="35"/>
-                
 
-                <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="ListRequest" 
-                          IsReadOnly="True"
-                          AutoGenerateColumns="False"
-                          Margin="0 10"
+                <StackPanel Orientation="Horizontal" Margin="20 10 20 0" Background="{StaticResource shadow}">
+                    <TextBlock Text="Fecha" Margin="0 0 10 0" Width="115" Foreground="{StaticResource text}" FontSize="17" Padding="19 5 5 5"/>
+                    <TextBlock Text="Asunto" Margin="10 0" Width="515" Foreground="{StaticResource text}" FontSize="17" Padding="5"/>
+                    <TextBlock Text="Estado" Margin="10 0" Width="100" Foreground="{StaticResource text}" FontSize="17" Padding="5"/>
+                </StackPanel>
+                <ListView Name="UserRequestsList" 
+                          Grid.Column="0" 
+                          Margin="20 0 20 20" 
                           MaxHeight="300"
-                          ItemsSource="{Binding Requests}">
+                          ItemsSource="{Binding Requests}" 
+                          Background="Transparent" 
+                          Foreground="{StaticResource text}">
 
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Fecha" Width="100" Binding="{Binding Date}" MaxWidth="100" MinWidth="100"/>
-                        <DataGridTextColumn Header="Asunto" Width="4*" Binding="{Binding Subject}"/>
-                        <DataGridTextColumn Header="Administrador" Width="2*" Binding="{Binding Admin}"/>
-                        <DataGridTextColumn Header="Estado" Width="100" Binding="{Binding Status}" MaxWidth="100" MinWidth="100"/>
-                    </DataGrid.Columns>
-                    
-                </DataGrid>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="{StaticResource shadow}" BorderThickness="0 0 0 3">
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal" Margin="10 2 0 2" >
+                                        <TextBlock Text="{Binding Date}" Margin="0 0 10 0" Width="100" Padding="2"/>
+                                        <TextBlock Text="{Binding Subject}" Margin="10 0" Width="520" Padding="2"/>
+                                        <TextBlock Text="{Binding Status}" Margin="10 0" Width="100" Padding="2"/>
+                                    </StackPanel>
+                                    <Border Name="ReplyRequest">
+                                        <StackPanel Orientation="Horizontal" Margin="10 2 0 2" >
+                                            <TextBlock Text="Respuesta:" Margin="0 0 10 0" Width="80" FontSize="15" Padding="2"/>
+                                            <TextBlock Text="" Margin="0 0 10 0" Width="600" TextWrapping="Wrap" FontSize="15" Padding="2"/>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
 
-                <DockPanel Margin="5" LastChildFill="False">
+                </ListView>
+
+                <DockPanel LastChildFill="False">
                     <Button DockPanel.Dock="Right"
                         Name="btn_NewRequest"
                         Command="{Binding newRequest}"
                         Content="Realizar nueva petición"
                         Background="{StaticResource generic-button}"
                         Style="{StaticResource Text-Button}"
-                        Margin="20"/>
+                        Margin="10"/>
                 </DockPanel>
                 
             </StackPanel>

@@ -28,6 +28,11 @@ namespace UMS.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Updates the displayed information when a class is selected.
+        /// </summary>
+        /// <param name="sender">The object that raised the event.</param>
+        /// <param name="e">Contains event data</param>
         private void ClassList_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (ClassList.SelectedItem != null)

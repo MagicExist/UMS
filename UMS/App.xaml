@@ -14,7 +14,6 @@
                 <ResourceDictionary Source="Resources/styles/LabelStyles.xaml"/>
                 <ResourceDictionary Source="Resources/styles/RadioButtonStyles.xaml"/>
                 <ResourceDictionary Source="Resources/styles/ScrollBarStyle.xaml"/>
-                <ResourceDictionary Source="Resources/styles/DataGridStyle.xaml"/>
                 <ResourceDictionary Source="Resources/styles/ListViewStyle.xaml"/>
                 <ResourceDictionary Source="Resources/styles/ComboBoxStyle.xaml"/>
                 <ResourceDictionary Source="Resources/styles/ListBoxStyle.xaml"/>

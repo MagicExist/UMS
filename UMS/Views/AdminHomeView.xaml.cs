@@ -34,6 +34,12 @@ namespace UMS.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the MouseLeftButtonUp event for the RequestsList.
+        /// Updates the displayed information when a request is selected.
+        /// </summary>
+        /// <param name="sender">The object that raised the event.</param>
+        /// <param name="e">Contains event data</param>
         private void RequestsList_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (RequestsList.SelectedItem != null) 
