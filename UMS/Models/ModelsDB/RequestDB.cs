@@ -86,7 +86,8 @@ namespace UMS.Models.ModelsDB
                             _reader.GetString(5),
                             _reader.GetString(6),
                             _reader.GetString(7),
-                            _reader.GetDateTime(8).ToString("yyyy-MM-dd")
+                            _reader.GetDateTime(8).ToString("yyyy-MM-dd"),
+                            _reader.GetString(9)
                         ));
                 }
             }
