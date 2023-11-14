@@ -18,6 +18,7 @@ namespace UMS.ViewModels
         #region variables for logic management
         private User _currentUser;
         private string _studentName;
+        private string _userType;
         public User CurrentUser 
         {
             get { return _currentUser; }
@@ -28,7 +29,9 @@ namespace UMS.ViewModels
                 loadEscheduler(_currentUser);
             }
         }
-            
+
+
+        public string UserType { get { return _userType; } set { _userType = value; OnpropertyChanged(); } }
         public string StudentName { get { return _studentName; } set { _studentName = value;OnpropertyChanged(); } }
 
         #endregion
@@ -113,6 +116,13 @@ namespace UMS.ViewModels
             ConfirmDetailsVisibility = Visibility.Collapsed;
             CancelDetailsVisibility = Visibility.Collapsed;
             TextBoxReadOnly = true;
+        }
+        public void professorViewDetailsCollapse()
+        {
+            EditDetailsVisibility = Visibility.Visible;
+            ConfirmDetailsVisibility = Visibility.Collapsed;
+            CancelDetailsVisibility = Visibility.Collapsed;
+            TextBoxReadOnly = false;
         }
 
         public void loadEscheduler(User currentUser) 

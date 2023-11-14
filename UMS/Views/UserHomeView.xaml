@@ -32,7 +32,7 @@
                        Foreground="{StaticResource text}"
                        FontSize="32"/>
 
-            <TextBlock Text="Estudiante"
+            <TextBlock Text="{Binding UserType}"
                        Foreground="{StaticResource text}"
                        FontSize="25"/> 
             

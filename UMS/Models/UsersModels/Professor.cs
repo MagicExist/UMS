@@ -15,7 +15,7 @@ namespace UMS.Models.UsersModels
         public int State { get => _state; set => _state = value; }
         public string ExpertiseArea { get => _expertiseArea; set => _expertiseArea = value; }
 
-        public Professor(string document, string name, string email, string password, string expertiseArea, int state) : base(document, name, email, password)
+        public Professor(string document, string name,int state, string expertiseArea, string email, string password) : base(document, name, email, password)
         {
             _expertiseArea = expertiseArea;
             _state = state;

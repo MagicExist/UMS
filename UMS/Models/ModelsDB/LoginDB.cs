@@ -13,6 +13,14 @@ namespace UMS.Models.ModelsDB
 {
     internal class LoginDB
     {
+
+        enum userType
+        {
+            Admin = 1,
+            Professor = 2,
+            Student = 3
+        }
+
         private SqlCommand _command;
         private SqlDataReader _reader;
         private User _user;
@@ -32,60 +40,48 @@ namespace UMS.Models.ModelsDB
         {
             _command = new SqlCommand("FiltrarUsuario", currentConnection);
             _command.CommandType = CommandType.StoredProcedure;
-
             _command.Parameters.AddWithValue("@email", email);
             _command.Parameters.AddWithValue("@password", password);
 
             _reader = _command.ExecuteReader();
+
             if (_reader.HasRows)
             {
                 while (_reader.Read())
                 {
-                    _user = new User
-                        (
-                            _reader.GetString(0),
-                            _reader.GetString(1),
-                            _reader.GetString(2),
-                            _reader.GetString(4)
-                        );
+                    type = _reader.GetInt32(0);
+                    switch ((userType)type)
+                    {
+                        case userType.Student:
+                            _user = new Student
+                                    (
+                                        _reader.GetString(1),
+                                        _reader.GetString(2),
+                                        _reader.GetString(3),
+                                        _reader.GetString(4)
+                                    );
+                            break;
+                        case userType.Professor:
+                            _user = new Professor
+                                    (
+                                        _reader.GetString(1),
+                                        _reader.GetString(2),
+                                        _reader.GetInt32(3),
+                                        _reader.GetString(4),
+                                        _reader.GetString(5),
+                                        _reader.GetString(6)
+                                    );
+                            break;
+                    }
                 }
+                
             }
             else
             {
 
             }
-
             _reader.Close();
-
-
-            if (_user != null) 
-            {
-                string query = "select Tipo from Usuarios where Id = @document";
-
-                _command.CommandText = query;
-                _command.CommandType = CommandType.Text;
-                _command.Parameters.AddWithValue("@document", _user.Document);
-
-                _reader = _command.ExecuteReader();
-                if (_reader.HasRows)
-                {
-                    while (_reader.Read())
-                    {
-                        byte tempType = _reader.GetByte(0);
-                        type = Convert.ToInt32(tempType);
-                    }
-                }
-                else
-                {
-
-                }
-
-                return (_user, type);
-            }
-            else 
-            {
-                throw new NullReferenceException("Correo o Clave incorrectos");
-            }
+            return (_user, type);
         }
     }
 }
