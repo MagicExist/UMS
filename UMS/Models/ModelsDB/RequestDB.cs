@@ -10,14 +10,9 @@ namespace UMS.Models.ModelsDB
 {
     internal class RequestDB
     {
-        
         private SqlCommand _command;
         private SqlDataReader _reader;
         private List<Request> _listRequest;
-
-       
-
-
    
         public List<Request> loadRequest(SqlConnection currentConnection, User currentUser)
         {
