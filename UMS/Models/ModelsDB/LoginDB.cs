@@ -88,7 +88,7 @@ namespace UMS.Models.ModelsDB
             }
             else
             {
-
+                throw new NullReferenceException("Correo o contraseña incorrectos");
             }
             _reader.Close();
             return (_user, type);
