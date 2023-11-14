@@ -19,15 +19,15 @@
             
             <StackPanel Width="70" VerticalAlignment="Top">
 
-                <RadioButton Name="home">
+                <RadioButton Name="home" Command="{Binding HomeNavCommand}">
                     <fa:ImageAwesome Icon="Home" Width="auto" Height="30" Foreground="{Binding Foreground, ElementName=home}"/>
                 </RadioButton>
 
-                <RadioButton Name="support" IsChecked="True" Visibility="{Binding SupportVisibility}">
+                <RadioButton Name="support" IsChecked="True" Visibility="{Binding SupportVisibility}" Command="{Binding UserSupportNavCommand}">
                     <fa:ImageAwesome Icon="Wrench" Width="auto" Height="30" Foreground="{Binding Foreground,ElementName=support}"/>
                 </RadioButton>
 
-                <RadioButton  Name="assignRooms" Visibility="{Binding SearchVisibility}">
+                <RadioButton  Name="assignRooms" Visibility="{Binding SearchVisibility}" Command="{Binding SearchClassRoomNavCommand}">
                     <fa:ImageAwesome Icon="Search" Width="auto" Height="30" Foreground="{Binding Foreground,ElementName=assignRooms}"/>
                 </RadioButton>
 
