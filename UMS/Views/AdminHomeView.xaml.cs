@@ -36,6 +36,7 @@ namespace UMS.Views
                 SelectedRequest= (Request)RequestsList.SelectedItem;
                 DateSendRequests.Text = SelectedRequest.Date;
                 subjectRequests.Text = SelectedRequest.Subject;
+                DetailsRequests.Text = SelectedRequest.Details;
             }
         }
     }
