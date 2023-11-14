@@ -28,11 +28,22 @@ namespace UMS.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Hides the AssignGroup interface when the cancelAssign button is clicked.
+        /// </summary>
+        /// <param name="sender">The object that raised the event.</param>
+        /// <param name="e">Contains event data</param>
         private void cancelAssign_Click(object sender, RoutedEventArgs e)
         {
             AssignGroup.Visibility = Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// Handles the SelectionChanged event for the Classrooms ListBox.
+        /// Shows or hides the AssignGroup interface based on the availability of the selected ClassRoom.
+        /// </summary>
+        /// <param name="sender">The object that raised the event.</param>
+        /// <param name="e">Contains event data</param>
         private void Classrooms_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

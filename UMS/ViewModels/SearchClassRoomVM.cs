@@ -13,6 +13,7 @@ namespace UMS.ViewModels
     {
         #region variables for interface management
 
+        // Lists for comboBoxes 
         List<string> days = new List<string> { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
         public List<string> Days { get => days; }
 
@@ -22,6 +23,7 @@ namespace UMS.ViewModels
         List<string> endtHours = new List<string> {"7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", };
         public List<string> EndHours { get => endtHours; }
 
+        // List to store classrooms
         List<ClassRoom> _classRooms = new List<ClassRoom>();
         public List<ClassRoom> ClassRooms 
         {
@@ -29,7 +31,7 @@ namespace UMS.ViewModels
             set { _classRooms = value; OnpropertyChanged(); }
         }
 
-
+        // Variable to control the visibility of the advanced search in the view.
         private Visibility _advancedSearchVisibility;
 
         public Visibility AdvancedSearchVisibility
@@ -68,9 +70,10 @@ namespace UMS.ViewModels
         #region Execute Methods
 
         /// <summary>
-        /// This method is used to show or hide the advanced search section.
+        /// Toggles the visibility of the advanced search interface.
+        /// If the advanced search interface is collapsed, it is made visible; otherwise, it is collapsed.
         /// </summary>
-        /// <param name="parameter"></param>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         public void ShowAdvancedSearch(object parameter) 
         {
             if (AdvancedSearchVisibility == Visibility.Collapsed)

@@ -36,6 +36,7 @@ namespace UMS.ViewModels
 
         #region variables for interface management
 
+        // List for storing requests assigned to administrators
         List<Request> _requests= new List<Request>();
         public List<Request> Requests 
         {
@@ -44,6 +45,7 @@ namespace UMS.ViewModels
         
         }
 
+        // Variables for manipulating the visibility of the controllers in the view 
         Visibility _replyButtonVisibility;
         public Visibility ReplyButtonVisibility
         {
@@ -107,6 +109,10 @@ namespace UMS.ViewModels
             #endregion
         }
 
+        /// <summary>
+        /// sends a response to the database 
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         public void SendReply(object parameter)
         {
             ReplyButtonVisibility = Visibility.Visible;
@@ -115,6 +121,10 @@ namespace UMS.ViewModels
             ReplyTextBoxVisibility = Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// Initiates the reply process
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         public void MakeReply(object parameter) 
         {
             ReplyButtonVisibility = Visibility.Collapsed;
@@ -123,6 +133,10 @@ namespace UMS.ViewModels
             ReplyTextBoxVisibility = Visibility.Visible;
         }
 
+        /// <summary>
+        /// Cancels the reply process, discards changes, and reverts to the initial state.
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         public void CancelReply(object parameter)
         {
             ReplyButtonVisibility = Visibility.Visible;

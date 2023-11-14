@@ -24,6 +24,10 @@ namespace UMS.ViewModels
         public LoadRequestStore LoadRequestStore { get { return _loadRequestStore; } set { _loadRequestStore = value; } }
 
         #endregion
+
+        #region variables for interface management
+
+        // List for storing user requests
         List<Request> requests= new List<Request>();
         public List<Request> Requests
 		{
@@ -38,6 +42,7 @@ namespace UMS.ViewModels
 			} 
 		}
 
+        // Variables for manipulating the visibility of the controllers in the view 
         private Visibility _listRequestVisibility;
 		public Visibility ListRequestVisibility
         {
@@ -60,10 +65,15 @@ namespace UMS.ViewModels
 			}
 		}
 
-		public RelayCommand newRequest { get; set; }
+        #endregion
+
+        #region Commands
+        public RelayCommand newRequest { get; set; }
 		public RelayCommand cancelRequest { get; set; }
 		public RelayCommand sendRequest { get; set; }
-        
+
+        #endregion
+
 
         public UserSupportVM()
 		{
@@ -73,7 +83,9 @@ namespace UMS.ViewModels
 			sendRequest = new RelayCommand(SendRequest);
         }
 
-		public void OnLoadRequestSub(User currentUser,int currentUserType) 
+        #region Execute Methods
+
+        public void OnLoadRequestSub(User currentUser,int currentUserType) 
 		{
             #region LoadScheduler
             OpenDbConnection openDbConnection = new OpenDbConnection();
@@ -83,19 +95,31 @@ namespace UMS.ViewModels
             #endregion
         }
 
-
+        /// <summary>
+        /// Hides the list of requests and displays the interface for a new request.
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         private void MakeRequest(object parameter) 
 		{ 
 			ListRequestVisibility= Visibility.Collapsed;
 			NewRequestVisibility= Visibility.Visible;
 		}
 
+        /// <summary>
+        /// Displays the list of requests and hides the interface for a new request.
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         private void CancelRequest(object parameter)
         {
             ListRequestVisibility = Visibility.Visible;
             NewRequestVisibility = Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// The request is saved to the database, and the list of requests is updated.
+        /// Displays the list of requests and hides the interface for a new request.
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         private void SendRequest(object parameter)
         {
 
@@ -105,6 +129,7 @@ namespace UMS.ViewModels
             NewRequestVisibility = Visibility.Collapsed;
         }
 
+        #endregion
 
     }
 }

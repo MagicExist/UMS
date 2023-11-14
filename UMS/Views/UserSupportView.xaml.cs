@@ -26,6 +26,5 @@ namespace UMS.Views
             InitializeComponent();
         }
 
-        
     }
 }
