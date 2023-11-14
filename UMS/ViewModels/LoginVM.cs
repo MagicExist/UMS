@@ -79,6 +79,7 @@ namespace UMS.ViewModels
                             UserHomeVM.UserType = "Estudiante";
 
                             UserVM.CurrentChildren = UserHomeVM;
+                            UserVM.CurrentUserType = type;
                             UserVM.ViewNavCollapse();
 
                             LoginStore.OnLoginAllowInvoke(UserVM, currentUser);
@@ -89,6 +90,7 @@ namespace UMS.ViewModels
                             UserHomeVM.UserType = "Profesor";
 
                             UserVM.CurrentChildren = UserHomeVM;
+                            UserVM.CurrentUserType = type;
                             UserVM.ViewNavCollapse();
 
                             LoginStore.OnLoginAllowInvoke(UserVM, currentUser);
@@ -97,6 +99,7 @@ namespace UMS.ViewModels
                             AdminHomeVM.CurrentUser = currentUser;
 
                             UserVM.CurrentChildren = AdminHomeVM;
+                            UserVM.CurrentUserType = type;
                             UserVM.AdminViewNavCollapse();
 
                             LoginStore.OnLoginAllowInvoke(UserVM, currentUser);
