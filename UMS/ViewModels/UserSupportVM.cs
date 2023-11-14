@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,24 @@ using System.Threading.Tasks;
 using System.Windows;
 using UMS.Core;
 using UMS.Models;
+using UMS.Models.ModelsDB;
+using UMS.Models.UsersModels;
+using UMS.Stores;
 
 namespace UMS.ViewModels
 {
-    internal class UserSupportVM : ObservableObjects
-    {
+	internal class UserSupportVM : ObservableObjects
+	{
+		#region variables for logic management
+		private int _currentUserType;
+        private LoadRequestStore _loadRequestStore;
 
-		List<Request> requests= new List<Request>();
+
+        public int CurrentUserType {  get { return _currentUserType; } set {  _currentUserType = value; } }
+        public LoadRequestStore LoadRequestStore { get { return _loadRequestStore; } set { _loadRequestStore = value; } }
+
+        #endregion
+        List<Request> requests= new List<Request>();
         public List<Request> Requests
 		{
 			get
@@ -81,7 +93,18 @@ namespace UMS.ViewModels
 
         }
 
-		private void MakeRequest(object parameter) 
+		public void OnLoadRequestSub(User currentUser,int currentUserType) 
+		{
+            #region LoadScheduler
+            OpenDbConnection openDbConnection = new OpenDbConnection();
+            RequestDB requestDB = new RequestDB();
+            SqlConnection currentConnection = openDbConnection.openConnection();
+            requests = requestDB.loadRequest(currentConnection, currentUser, currentUserType);
+            #endregion
+        }
+
+
+        private void MakeRequest(object parameter) 
 		{ 
 			ListRequestVisibility= Visibility.Collapsed;
 			NewRequestVisibility= Visibility.Visible;

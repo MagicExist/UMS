@@ -21,7 +21,12 @@ namespace UMS.Views
     /// </summary>
     public partial class AdminHomeView : UserControl
     {
-
+        enum userType
+        {
+            Admin = 1,
+            Professor = 2,
+            Student = 3
+        }
         public Request SelectedRequest { get; set; }
 
         public AdminHomeView()
@@ -37,6 +42,8 @@ namespace UMS.Views
                 DateSendRequests.Text = SelectedRequest.Date;
                 subjectRequests.Text = SelectedRequest.Subject;
                 DetailsRequests.Text = SelectedRequest.Details;
+                CodeNameRequests.Text = SelectedRequest.UserDocument;
+                UserTypeRequests.Text = SelectedRequest.UserType;
             }
         }
     }

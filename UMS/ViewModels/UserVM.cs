@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using UMS.Core;
 using UMS.Models.UsersModels;
+using UMS.Stores;
 
 namespace UMS.ViewModels
 {
@@ -19,17 +20,24 @@ namespace UMS.ViewModels
             Student = 3
         }
 
+        //ViewModels
         private UserSupportVM _userSupportVM;
         private userHomeVM _userHomeVM;
         private AdminHomeVM _adminHomeVM;
         private SearchClassRoomVM _searchClassRoomVM;
+        //Stores
+        private LoadRequestStore _loadRequestStore;
+        //Logic
         private int _currentUserType;
+        private User _currentUser;
 
         public UserSupportVM UserSupportVM {get { return _userSupportVM;} set { _userSupportVM = value; } }
         public userHomeVM UserHomeVM { get { return _userHomeVM; } set { _userHomeVM = value; } }
         public AdminHomeVM AdminHomeVM { get { return _adminHomeVM; } set { _adminHomeVM = value; } }
         public SearchClassRoomVM SearchClassRoomVM { get { return _searchClassRoomVM; } set { _searchClassRoomVM = value; } }
         public int CurrentUserType { get { return _currentUserType; } set { _currentUserType = value; } }
+        public LoadRequestStore LoadRequestStore { get { return _loadRequestStore; } set { _loadRequestStore = value; } }
+        public User CurrentUser { get { return _currentUser; } set { _currentUser = value; } }
 
         #endregion
 
@@ -100,6 +108,7 @@ namespace UMS.ViewModels
 
         public void UserSupportNavMethod(object parameter)
         {
+            LoadRequestStore.OnLoadRequestInvoke(CurrentUser,CurrentUserType);
             switch ((userType)CurrentUserType)
             {
                 case userType.Student:

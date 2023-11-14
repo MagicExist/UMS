@@ -25,7 +25,6 @@ namespace UMS.ViewModels
             {
                 _currentUser = value;
                 AdminName = _currentUser.Name;
-                loadRequests(_currentUser);
             }
         }
 
@@ -98,13 +97,13 @@ namespace UMS.ViewModels
 
         #region execute Methods
 
-        public void loadRequests(User currentUser)
+        public void OnLoadRequestSub(User currentUser,int currentUserType)
         {
             #region LoadScheduler
             OpenDbConnection openDbConnection = new OpenDbConnection();
             RequestDB requestDB = new RequestDB();
             SqlConnection currentConnection = openDbConnection.openConnection();
-            _requests = requestDB.loadRequest(currentConnection, currentUser);
+            _requests = requestDB.loadRequest(currentConnection, currentUser,currentUserType);
             #endregion
         }
 

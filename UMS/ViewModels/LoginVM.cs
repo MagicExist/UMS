@@ -18,6 +18,7 @@ namespace UMS.ViewModels
         private string _labelError;
 
         private LoginStore _loginStore;
+        private LoadRequestStore _loadRequestStore;
         private UserVM _userVM;
         private UserSupportVM _userSupportVM;
         private userHomeVM _userHomeVM;
@@ -59,6 +60,7 @@ namespace UMS.ViewModels
         internal userHomeVM UserHomeVM { get => _userHomeVM; set => _userHomeVM = value; }
         internal AdminHomeVM AdminHomeVM { get => _adminHomeVM; set => _adminHomeVM = value; }
         internal SearchClassRoomVM SearchClassRoomVM { get => _searchClassRoomVM; set => _searchClassRoomVM = value; }
+        internal LoadRequestStore LoadRequestStore { get {  return _loadRequestStore; } set { _loadRequestStore = value; } }
 
         public void AllowMethod(object parameter)
         {
@@ -80,6 +82,7 @@ namespace UMS.ViewModels
 
                             UserVM.CurrentChildren = UserHomeVM;
                             UserVM.CurrentUserType = type;
+                            UserVM.CurrentUser = currentUser;
                             UserVM.ViewNavCollapse();
 
                             LoginStore.OnLoginAllowInvoke(UserVM, currentUser);
@@ -91,6 +94,7 @@ namespace UMS.ViewModels
 
                             UserVM.CurrentChildren = UserHomeVM;
                             UserVM.CurrentUserType = type;
+                            UserVM.CurrentUser = currentUser;
                             UserVM.ViewNavCollapse();
 
                             LoginStore.OnLoginAllowInvoke(UserVM, currentUser);
@@ -100,8 +104,10 @@ namespace UMS.ViewModels
 
                             UserVM.CurrentChildren = AdminHomeVM;
                             UserVM.CurrentUserType = type;
+                            UserVM.CurrentUser = currentUser;
                             UserVM.AdminViewNavCollapse();
 
+                            LoadRequestStore.OnLoadRequestInvoke(currentUser,type);
                             LoginStore.OnLoginAllowInvoke(UserVM, currentUser);
                             break;
                     }

@@ -29,25 +29,37 @@ namespace UMS
             MainVM mainVM = new MainVM();
             //Stores
             LoginStore loginStore = new LoginStore();
+            LoadRequestStore loadRequestStore = new LoadRequestStore();
             #endregion
+
+            #region EventsSubscribers
+            loginStore.OnLoginAllow += mainVM.OnLoginAllowSub;
+            loadRequestStore.OnLoadRequest += userSupportVM.OnLoadRequestSub;
+            loadRequestStore.OnLoadRequest += adminHomeVM.OnLoadRequestSub;
+            #endregion
+
             loginVM.LoginStore = loginStore;
             loginVM.UserVM = userVM;
             loginVM.UserSupportVM = userSupportVM;
             loginVM.UserHomeVM= userHomeVM;
             loginVM.AdminHomeVM= adminHomeVM;
             loginVM.SearchClassRoomVM = searchClassRoomVM;
+            loginVM.LoadRequestStore = loadRequestStore;
 
             userVM.AdminHomeVM= adminHomeVM;
             userVM.UserSupportVM= userSupportVM;
             userVM.UserHomeVM = userHomeVM;
             userVM.SearchClassRoomVM = searchClassRoomVM;
+            userVM.LoadRequestStore = loadRequestStore;
 
 
 
 
             mainVM.LoginStore = loginStore;
             mainVM.currentView = loginVM;
-            mainVM.LoginStore.OnLoginAllow += mainVM.OnLoginAllowSub;
+
+
+            
 
             MainWindow MainWindow = new MainWindow()
             {
