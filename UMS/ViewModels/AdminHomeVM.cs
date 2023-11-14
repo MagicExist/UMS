@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using UMS.Core;
 using UMS.Models;
+using UMS.Models.ModelsDB;
 using UMS.Models.UsersModels;
 
 namespace UMS.ViewModels
@@ -23,6 +25,7 @@ namespace UMS.ViewModels
             {
                 _currentUser = value;
                 AdminName = _currentUser.Name;
+                loadRequests(_currentUser);
             }
         }
 
@@ -91,13 +94,19 @@ namespace UMS.ViewModels
             SendReplyCommand = new RelayCommand(SendReply);
             CancelReplyCommand = new RelayCommand(CancelReply);
 
-            _requests.Add(new Request("2023/10/11", "Problemas con mi Horario", "Kevin Rogers", "Pendiente"));
-            _requests.Add(new Request("2023/09/23", "No veo mis clases", "Kevin Rogers", "Solucionada"));
-            _requests.Add(new Request("2023/09/15", "Hay un error con la hora de una de mis asignaturas", "Kevin Rogers", "Pendiente"));
-            _requests.Add(new Request("2023/08/10", "no me aparece la informacion de la clase", "Kevin Rogers", "Solucionada"));
         }
 
         #region execute Methods
+
+        public void loadRequests(User currentUser)
+        {
+            #region LoadScheduler
+            OpenDbConnection openDbConnection = new OpenDbConnection();
+            RequestDB requestDB = new RequestDB();
+            SqlConnection currentConnection = openDbConnection.openConnection();
+            _requests = requestDB.loadRequest(currentConnection, currentUser);
+            #endregion
+        }
 
         public void SendReply(object parameter)
         {
