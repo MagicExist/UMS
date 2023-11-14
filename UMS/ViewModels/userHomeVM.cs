@@ -98,14 +98,9 @@ namespace UMS.ViewModels
 
         public userHomeVM()
         {
-
-            
-
             editDetailsCommand = new RelayCommand(EditDetails);
             confirmDetailsCommand = new RelayCommand(ConfirmDetails);
             canceltDetailsCommand = new RelayCommand(CancelDetails);
-
-            
         }
 
         #region Execute Methods

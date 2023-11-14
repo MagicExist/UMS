@@ -93,6 +93,14 @@ namespace UMS.ViewModels
 
                             LoginStore.OnLoginAllowInvoke(UserVM, currentUser);
                             break;
+                        case userType.Admin:
+                            AdminHomeVM.CurrentUser = currentUser;
+
+                            UserVM.CurrentChildren = AdminHomeVM;
+                            UserVM.AdminViewNavCollapse();
+
+                            LoginStore.OnLoginAllowInvoke(UserVM, currentUser);
+                            break;
                     }
                     currentConnection.Close();
                 }

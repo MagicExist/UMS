@@ -72,13 +72,23 @@ namespace UMS.Models.ModelsDB
                                         _reader.GetString(6)
                                     );
                             break;
+
+                        case userType.Admin:
+                            _user = new Admin
+                                    (
+                                        _reader.GetString(1),
+                                        _reader.GetString(2),
+                                        _reader.GetString(3),
+                                        _reader.GetString(4)
+                                    );
+                            break;
                     }
                 }
                 
             }
             else
             {
-
+                throw new NullReferenceException("Correo o contraseña incorrectos");
             }
             _reader.Close();
             return (_user, type);
