@@ -43,9 +43,10 @@ namespace UMS.Models.ModelsDB
                 "CONVERT(time,Hora_Final) as hora_final," +
                 "Id_Grupo," +
                 "Codigo_Salon," +
-                "(select Nombre from Asignaturas where Codigo = Clases.Codigo_Asignatura) as asignatura " +
+                "(select Nombre from Asignaturas where Codigo = Clases.Codigo_Asignatura) as asignatura, " +
+                "Detalles " +
                 "from Clases " +
-                "where Id_Grupo = (select Id from Grupos where IdEstudiante = @IdCurrentUser)";
+                "where Id_Grupo in (select IdGrupo from GruposEstudiantes where IdEstudiante = @IdCurrentUser)";
 
             _command = new SqlCommand(query,currentConnection);
             _command.Parameters.AddWithValue("@IdCurrentUser",currentUser.Document);
@@ -81,9 +82,10 @@ namespace UMS.Models.ModelsDB
                             day,
                             _reader.GetTimeSpan(1).ToString(@"hh\:mm"),
                             _reader.GetTimeSpan(2).ToString(@"hh\:mm"),
-                            _reader.GetInt16(3).ToString(),
+                            _reader.GetString(3),
                             _reader.GetString(4),
-                            _reader.GetString(5)
+                            _reader.GetString(5),
+                            _reader.GetString(6)
                         ));
                 }
             }

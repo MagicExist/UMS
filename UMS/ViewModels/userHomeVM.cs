@@ -32,7 +32,7 @@ namespace UMS.ViewModels
 
 
         public string UserType { get { return _userType; } set { _userType = value; OnpropertyChanged(); } }
-        public string StudentName { get { return _studentName; } set { _studentName = value;OnpropertyChanged(); } }
+        public string StudentName { get { return _studentName; } set { _studentName = value; OnpropertyChanged(); } }
 
         #endregion
 

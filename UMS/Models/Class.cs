@@ -14,6 +14,7 @@ namespace UMS.Models
         string idGroup;
         string idClassRoom;
         string course;
+        string details;
         public string StartTime { get => startTime;}
         public string EndTime { get => endTime; }
         public string IdGroup { get => idGroup; }
@@ -21,8 +22,9 @@ namespace UMS.Models
         public string Course { get => course; }
 
         public string Day { get => day;}
+        public string Details { get => details; }
 
-        public Class(string day, string startTime, string endTime, string idGroup, string idClassRoom, string course)
+        public Class(string day, string startTime, string endTime, string idGroup, string idClassRoom, string course, string details)
         {
             this.day = day;
             this.startTime = startTime;
@@ -30,6 +32,7 @@ namespace UMS.Models
             this.idGroup = idGroup;
             this.idClassRoom = idClassRoom;
             this.course = course;
+            this.details= details;
         }
 
     }
