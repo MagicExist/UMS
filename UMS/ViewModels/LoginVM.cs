@@ -76,9 +76,9 @@ namespace UMS.ViewModels
                     switch ((userType)type)
                     {
                         case userType.Student:
-                            UserHomeVM.CurrentUser = currentUser;
                             UserHomeVM.studentViewDetailsCollapse();
-                            UserHomeVM.UserType = "Estudiante";
+                            UserHomeVM.TempUserType = type;
+                            UserHomeVM.CurrentUser = currentUser;
 
                             UserVM.CurrentChildren = UserHomeVM;
                             UserVM.CurrentUserType = type;
@@ -88,9 +88,9 @@ namespace UMS.ViewModels
                             LoginStore.OnLoginAllowInvoke(UserVM, currentUser);
                             break;
                         case userType.Professor:
-                            UserHomeVM.CurrentUser = currentUser;
                             UserHomeVM.professorViewDetailsCollapse();
-                            UserHomeVM.UserType = "Profesor";
+                            UserHomeVM.TempUserType = type;
+                            UserHomeVM.CurrentUser = currentUser;
 
                             UserVM.CurrentChildren = UserHomeVM;
                             UserVM.CurrentUserType = type;
