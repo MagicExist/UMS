@@ -23,11 +23,11 @@
                     <fa:ImageAwesome Icon="Home" Width="auto" Height="30" Foreground="{Binding Foreground, ElementName=home}"/>
                 </RadioButton>
 
-                <RadioButton Name="support" IsChecked="True">
+                <RadioButton Name="support" IsChecked="True" Visibility="{Binding SupportVisibility}">
                     <fa:ImageAwesome Icon="Wrench" Width="auto" Height="30" Foreground="{Binding Foreground,ElementName=support}"/>
                 </RadioButton>
 
-                <RadioButton  Name="assignRooms">
+                <RadioButton  Name="assignRooms" Visibility="{Binding SearchVisibility}">
                     <fa:ImageAwesome Icon="Search" Width="auto" Height="30" Foreground="{Binding Foreground,ElementName=assignRooms}"/>
                 </RadioButton>
 
