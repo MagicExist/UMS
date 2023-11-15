@@ -53,13 +53,8 @@ namespace UMS
             userVM.SearchClassRoomVM = searchClassRoomVM;
             userVM.LoadRequestStore = loadRequestStore;
 
-
-
-
             mainVM.LoginStore = loginStore;
             mainVM.currentView = loginVM;
-
-
             
 
             MainWindow MainWindow = new MainWindow()

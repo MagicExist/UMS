@@ -1,10 +1,12 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using UMS.Core;
 using UMS.Models;
 using UMS.Models.ModelsDB;
@@ -18,6 +20,8 @@ namespace UMS.ViewModels
         #region variables for logic management
         private User _currentUser;
         private string _adminName;
+        private int _currentUserType;
+      
 
         public User CurrentUser
         {
@@ -28,10 +32,9 @@ namespace UMS.ViewModels
                 AdminName = _currentUser.Name;
             }
         }
-        public AdminHomeView View { get; set; }
+        
 
-
-
+        public int CurrentUserType {get { return _currentUserType; } set { _currentUserType = value; } }
         public string AdminName { get { return _adminName; } set { _adminName = value; OnpropertyChanged(); } }
 
 
@@ -41,8 +44,8 @@ namespace UMS.ViewModels
         #region variables for interface management
 
         // List for storing requests assigned to administrators
-        List<Request> _requests= new List<Request>();
-        public List<Request> Requests 
+        ObservableCollection<Request> _requests= new ObservableCollection<Request>();
+        public ObservableCollection<Request> Requests 
         {
             get { return _requests; }
             set { _requests = value; OnpropertyChanged(); }
@@ -83,7 +86,7 @@ namespace UMS.ViewModels
         #region commands
 
         public RelayCommand ReplyCommand { get; set; }
-        public RelayCommand SendReplyCommand { get; set; }
+        public RelayCommand SendRequestCommand { get; set; }
         public RelayCommand CancelReplyCommand { get; set; }
         #endregion
 
@@ -97,12 +100,22 @@ namespace UMS.ViewModels
 
 
             ReplyCommand = new RelayCommand(MakeReply);
-            SendReplyCommand = new RelayCommand(SendReply);
+            SendRequestCommand = new RelayCommand(SendRequestMethod);
             CancelReplyCommand = new RelayCommand(CancelReply);
 
         }
 
         #region execute Methods
+
+        public void SendRequestMethod(object paremeter) 
+        {
+            #region LoadScheduler
+            OpenDbConnection openDbConnection = new OpenDbConnection();
+            RequestDB requestDB = new RequestDB();
+            SqlConnection currentConnection = openDbConnection.openConnection();
+            Requests = requestDB.loadRequest(currentConnection, CurrentUser, CurrentUserType);
+            #endregion
+        }
 
         public void OnLoadRequestSub(User currentUser,int currentUserType)
         {
@@ -112,18 +125,6 @@ namespace UMS.ViewModels
             SqlConnection currentConnection = openDbConnection.openConnection();
             _requests = requestDB.loadRequest(currentConnection, currentUser,currentUserType);
             #endregion
-        }
-
-        /// <summary>
-        /// sends a response to the database 
-        /// </summary>
-        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
-        public void SendReply(object parameter)
-        {
-            ReplyButtonVisibility = Visibility.Visible;
-            SendButtonVisibility = Visibility.Collapsed;
-            CancelButtonVisibility = Visibility.Collapsed;
-            ReplyTextBoxVisibility = Visibility.Collapsed;
         }
 
         /// <summary>

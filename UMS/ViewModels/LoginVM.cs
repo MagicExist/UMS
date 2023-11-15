@@ -106,6 +106,7 @@ namespace UMS.ViewModels
                             break;
                         case userType.Admin:
                             AdminHomeVM.CurrentUser = currentUser;
+                            AdminHomeVM.CurrentUserType = type;
                             SearchClassRoomVM.Days = daysDB.GetDays(currentConnection);
                             SearchClassRoomVM.Topics = topicsDB.GetTopics(currentConnection);
                             SearchClassRoomVM.States = statesDB.GetStates(currentConnection);
