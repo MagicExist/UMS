@@ -15,6 +15,11 @@ namespace UMS.Models.ModelsDB
         private SqlDataReader _reader;
         private string query;
 
+        /// <summary>
+        /// Updates a request in the database by setting the response and changing the request state to 'Responded'.
+        /// </summary>
+        /// <param name="currentConnection">The SqlConnection object representing the database connection.</param>
+        /// <param name="currentRequest">The Request object containing the updated information.</param>
         public void UpdateRequest(SqlConnection currentConnection, Request currentRequest)
         {
                 query = "update Peticiones set Respuesta = @currentRequest, Estado_Peticion = 'Respondida' where Id = @currentId";

@@ -15,6 +15,13 @@ namespace UMS.Models.ModelsDB
         private SqlDataReader _reader;
         private string query;
 
+
+        /// <summary>
+        /// Inserts a new request into the database.
+        /// </summary>
+        /// <param name="currentConnection">The SqlConnection object representing the database connection.</param>
+        /// <param name="currentRequest">The Request object containing the information for the new request.</param>
+        /// <param name="currentUser">The User object representing the user initiating the request.</param>
         public void InsertRequest(SqlConnection currentConnection, Request currentRequest,User currentUser)
         {
                 query = "insert into Peticiones (Id_Administrador,Id_Usuarios,Asunto,Descripcion,Estado_Peticion,Fecha,Respuesta)" +
