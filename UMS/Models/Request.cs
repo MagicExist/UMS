@@ -19,9 +19,9 @@ namespace UMS.Models
         int _id;
 
         public string Date { get => _date; }
-        public string Subject { get => _subject; }
+        public string Subject { get => _subject; set => _subject = value; }
         public string Admin { get => _admin; }
-        public string Details { get => _details; }
+        public string Details { get => _details; set => _details = value; }
         public string UserType { get => _userType;}
         public string UserDocument { get => _userDocument; }
         
@@ -40,6 +40,11 @@ namespace UMS.Models
             _userDocument = userDocument;
             Reply = reply;
             _id = id;
+        }
+
+        public Request() 
+        {
+
         }
 
     }

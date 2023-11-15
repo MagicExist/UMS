@@ -85,6 +85,8 @@ namespace UMS.ViewModels
                             UserHomeVM.TempUserType = type;
                             UserHomeVM.CurrentUser = currentUser;
 
+                            UserSupportVM.CurrentUser = currentUser;
+
                             UserVM.CurrentChildren = UserHomeVM;
                             UserVM.CurrentUserType = type;
                             UserVM.CurrentUser = currentUser;
@@ -96,6 +98,8 @@ namespace UMS.ViewModels
                             UserHomeVM.professorViewDetailsCollapse();
                             UserHomeVM.TempUserType = type;
                             UserHomeVM.CurrentUser = currentUser;
+
+                            UserSupportVM.CurrentUser = currentUser;
 
                             UserVM.CurrentChildren = UserHomeVM;
                             UserVM.CurrentUserType = type;

@@ -94,7 +94,8 @@
                        Content="Asunto:" 
                        Background="{StaticResource background-textbox}"/>
 
-                    <TextBox Grid.Column="1" 
+                    <TextBox Grid.Column="1"
+                         Text="{Binding TxtBoxSubject, Mode=TwoWay}"
                          Name="subject" 
                          Background="{StaticResource background-textbox}"/>
 
@@ -107,6 +108,7 @@
                            Padding="10 2"/>
 
                 <TextBox Name="Details" 
+                         Text="{Binding TxtBoxDetails,Mode=TwoWay}"
                          Background="{StaticResource background-textbox}" 
                          Height="125" 
                          Padding="10" 
