@@ -52,8 +52,6 @@ namespace UMS.ViewModels
             set { _labelError = value; OnpropertyChanged(); }
         }
 
-
-
         internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
         internal UserVM UserVM { get => _userVM; set => _userVM = value; }
         internal UserSupportVM UserSupportVM { get => _userSupportVM; set => _userSupportVM = value; }
@@ -62,12 +60,18 @@ namespace UMS.ViewModels
         internal SearchClassRoomVM SearchClassRoomVM { get => _searchClassRoomVM; set => _searchClassRoomVM = value; }
         internal LoadRequestStore LoadRequestStore { get {  return _loadRequestStore; } set { _loadRequestStore = value; } }
 
+        /// <summary>
+        /// This method controls the login of all users in the application
+        /// </summary>
+        /// <param name="parameter">An optional parameter.</param>
         public void AllowMethod(object parameter)
         {
+            // Check if the username and password fields are not null and not empty
             if ((TxtBoxUser != null && TxtBoxPassword != null) && (TxtBoxUser != string.Empty && TxtBoxPassword != string.Empty)) 
             {
                 try 
                 {
+                    // Initialize database-related objects
                     OpenDbConnection openDbConnection = new OpenDbConnection();
                     LoginDB loginDB = new LoginDB();
                     DaysDB daysDB = new DaysDB();
@@ -78,6 +82,7 @@ namespace UMS.ViewModels
                     SqlConnection currentConnection = openDbConnection.openConnection();
                     (User currentUser, int type) = loginDB.allowLogin(currentConnection, TxtBoxUser, TxtBoxPassword);
 
+                    // Switch based on the user type
                     switch ((userType)type)
                     {
                         case userType.Student:
@@ -102,7 +107,6 @@ namespace UMS.ViewModels
                             UserSupportVM.CurrentUser = currentUser;
                             UserSupportVM.TxtBoxCurrentDocument = currentUser.Document;
 
-
                             UserVM.CurrentChildren = UserHomeVM;
                             UserVM.CurrentUserType = type;
                             UserVM.CurrentUser = currentUser;
@@ -124,11 +128,6 @@ namespace UMS.ViewModels
                             SearchClassRoomVM.ClassRooms = classRoomsDB.LoadClassRooms(currentConnection);
                             #endregion
 
-
-
-                            
-
-
                             UserVM.CurrentChildren = AdminHomeVM;
                             UserVM.CurrentUserType = type;
                             UserVM.CurrentUser = currentUser;
@@ -146,20 +145,17 @@ namespace UMS.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    LabelError = ex.Message;
+                    LabelError = "Error inesperado";
                 }
             }
             else 
             {
                 LabelError = "Los campos no pueden estar vacios";
             }
-           
         }
-
         public LoginVM()
         {
             AllowAccess = new RelayCommand(AllowMethod);
         }
-
     }
 }
