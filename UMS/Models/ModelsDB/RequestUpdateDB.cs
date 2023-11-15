@@ -15,7 +15,7 @@ namespace UMS.Models.ModelsDB
         private SqlDataReader _reader;
         private string query;
 
-        public void InsertRequest(SqlConnection currentConnection, Request currentRequest)
+        public void UpdateRequest(SqlConnection currentConnection, Request currentRequest)
         {
                 query = "update Peticiones set Respuesta = @currentRequest where Id = @currentId";
                 _command = new SqlCommand(query, currentConnection);

@@ -14,19 +14,35 @@ using UMS.Stores;
 
 namespace UMS.ViewModels
 {
-	internal class UserSupportVM : ObservableObjects
-	{
-		#region variables for logic management
-		private int _currentUserType;
+    internal class UserSupportVM : ObservableObjects
+    {
+        #region variables for logic management
+        private int _currentUserType;
         private LoadRequestStore _loadRequestStore;
+        private User _currentUser;
 
-
-        public int CurrentUserType {  get { return _currentUserType; } set {  _currentUserType = value; } }
+        public User CurrentUser {  get { return _currentUser; } set { _currentUser = value; } }
+        public int CurrentUserType { get { return _currentUserType; } set { _currentUserType = value; } }
         public LoadRequestStore LoadRequestStore { get { return _loadRequestStore; } set { _loadRequestStore = value; } }
 
         #endregion
 
         #region variables for interface management
+        private string _txtBoxSubject;
+        private string _txtBoxDetails;
+
+        public string TxtBoxSubject 
+        {
+            get {return _txtBoxSubject;}
+            set { _txtBoxSubject = value; OnpropertyChanged(); }
+        }
+
+        public string TxtBoxDetails
+        {
+            get { return _txtBoxDetails; }
+            set { _txtBoxDetails = value; OnpropertyChanged(); }
+        }
+
 
         // List for storing user requests
         ObservableCollection<Request> requests= new ObservableCollection<Request>();
@@ -125,6 +141,12 @@ namespace UMS.ViewModels
         {
 
             // The register is saved to the database and the list of requests is updated.
+            RequestInsertDB requestInsertDB = new RequestInsertDB();
+            OpenDbConnection openDbConnection = new OpenDbConnection();
+            SqlConnection currentConnection = openDbConnection.openConnection();
+            Request currentRequest = new Request() {Subject = TxtBoxSubject, Details = TxtBoxDetails };
+
+            requestInsertDB.InsertRequest(currentConnection,currentRequest,CurrentUser);
 
             ListRequestVisibility = Visibility.Visible;
             NewRequestVisibility = Visibility.Collapsed;

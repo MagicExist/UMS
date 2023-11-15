@@ -82,7 +82,7 @@ namespace UMS.Views
             SelectedRequest.Status = "Respondida";
             SqlConnection currentConnection = openDbConnection.openConnection();
 
-            requestUpdateDB.InsertRequest(currentConnection,SelectedRequest);
+            requestUpdateDB.UpdateRequest(currentConnection,SelectedRequest);
 
             ReplyView.Visibility = Visibility.Visible;
             SendButton.Visibility = Visibility.Collapsed;
