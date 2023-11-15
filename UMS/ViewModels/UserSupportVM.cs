@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,8 +29,8 @@ namespace UMS.ViewModels
         #region variables for interface management
 
         // List for storing user requests
-        List<Request> requests= new List<Request>();
-        public List<Request> Requests
+        ObservableCollection<Request> requests= new ObservableCollection<Request>();
+        public ObservableCollection<Request> Requests
 		{
 			get
 			{

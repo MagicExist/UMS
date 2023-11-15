@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UMS.Models;
+using UMS.Models.ModelsDB;
 
 namespace UMS.Views
 {
@@ -66,6 +68,28 @@ namespace UMS.Views
 
 
             }
+        }
+        /// <summary>
+        /// sends a response to the database 
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
+        private void SendRequestButton_Click(object sender, RoutedEventArgs e)
+        {
+            RequestUpdateDB requestUpdateDB = new RequestUpdateDB();
+            OpenDbConnection openDbConnection = new OpenDbConnection();
+            SelectedRequest.Reply = ReplyRequests.Text;
+            ReplyRequestsView.Text = SelectedRequest.Reply;
+            SelectedRequest.Status = "Respondida";
+            SqlConnection currentConnection = openDbConnection.openConnection();
+
+            requestUpdateDB.InsertRequest(currentConnection,SelectedRequest);
+
+            ReplyView.Visibility = Visibility.Visible;
+            SendButton.Visibility = Visibility.Collapsed;
+            CancelButton.Visibility = Visibility.Collapsed;
+            SendRequestButton.Visibility = Visibility.Collapsed;
+            ReplyRequests.Visibility = Visibility.Collapsed;
+
         }
     }
 }

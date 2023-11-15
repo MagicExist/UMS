@@ -178,7 +178,8 @@
 
                         <StackPanel  Orientation="Horizontal" Grid.Row="2" Margin="0 15 0 0" HorizontalAlignment="Right">
 
-                            <Button Content="Cancelar"
+                            <Button Name="CancelButton"
+                                    Content="Cancelar"
                                     Command="{Binding CancelReplyCommand}"
                                     Background="{StaticResource cancel-button}" 
                                     Style="{StaticResource Text-Button}"
@@ -187,8 +188,10 @@
                                     Width="100"
                                     Visibility="{Binding CancelButtonVisibility}"/>
 
-                            <Button Content="Enviar"
-                                    Command="{Binding SendReplyCommand}"
+                            <Button Name="SendRequestButton"
+                                    Content="Enviar"
+                                    Click="SendRequestButton_Click"
+                                    Command="{Binding SendRequestCommand}"
                                     Background="{StaticResource accept-button}" 
                                     Style="{StaticResource Text-Button}"
                                     FontSize="14"

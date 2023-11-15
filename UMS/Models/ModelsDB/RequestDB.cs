@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,13 +20,13 @@ namespace UMS.Models.ModelsDB
 
         private SqlCommand _command;
         private SqlDataReader _reader;
-        private List<Request> _listRequest;
+        private ObservableCollection<Request> _listRequest;
         private string query;
         private string userRequestType;
    
-        public List<Request> loadRequest(SqlConnection currentConnection, User currentUser,int currentUserType)
+        public ObservableCollection<Request> loadRequest(SqlConnection currentConnection, User currentUser,int currentUserType)
         {
-            _listRequest = new List<Request>();
+            _listRequest = new ObservableCollection<Request>();
 
             switch ((userType)currentUserType) 
             {
@@ -88,7 +89,7 @@ namespace UMS.Models.ModelsDB
                             _reader.GetString(7),
                             _reader.GetDateTime(8).ToString("yyyy-MM-dd"),
                             _reader.GetString(9),
-                            _reader.GetByte(3)
+                            _reader.GetInt16(2)
                         ));
                 }
             }
