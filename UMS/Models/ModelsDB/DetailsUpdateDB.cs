@@ -9,17 +9,17 @@ using UMS.Models.UsersModels;
 
 namespace UMS.Models.ModelsDB
 {
-    internal class RequestUpdateDB
+    internal class DetailsUpdateDB
     {
         private SqlCommand _command;
         private SqlDataReader _reader;
         private string query;
 
-        public void InsertRequest(SqlConnection currentConnection, Request currentRequest)
+        public void InsertDetail(SqlConnection currentConnection, Class currentRequest)
         {
-                query = "update Peticiones set Respuesta = @currentRequest where Id = @currentId";
+                query = "update Clases set Detalles = @currentDetail where Id = @currentId";
                 _command = new SqlCommand(query, currentConnection);
-                _command.Parameters.AddWithValue("@currentRequest", currentRequest.Reply);
+                _command.Parameters.AddWithValue("@currentDetail", currentRequest.Details);
                 _command.Parameters.AddWithValue("@currentId", currentRequest.Id);
 
                 _command.ExecuteNonQuery();

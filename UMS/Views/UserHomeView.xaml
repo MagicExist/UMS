@@ -157,8 +157,10 @@
                                     Width="100"
                                     Visibility="{Binding CancelDetailsVisibility}"/>
 
-                            <Button Content="Confirmar"
+                            <Button Name="btnConfirmar"
+                                    Content="Confirmar"
                                     Command="{Binding confirmDetailsCommand}"
+                                    Click="btnConfirmar_Click"
                                     Background="{StaticResource accept-button}" 
                                     Style="{StaticResource Text-Button}"
                                     FontSize="14"
