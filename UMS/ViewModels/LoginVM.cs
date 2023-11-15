@@ -100,6 +100,8 @@ namespace UMS.ViewModels
                             UserHomeVM.CurrentUser = currentUser;
 
                             UserSupportVM.CurrentUser = currentUser;
+                            UserSupportVM.TxtBoxCurrentDocument = currentUser.Document;
+
 
                             UserVM.CurrentChildren = UserHomeVM;
                             UserVM.CurrentUserType = type;
@@ -111,10 +113,20 @@ namespace UMS.ViewModels
                         case userType.Admin:
                             AdminHomeVM.CurrentUser = currentUser;
                             AdminHomeVM.CurrentUserType = type;
+
                             SearchClassRoomVM.Days = daysDB.GetDays(currentConnection);
                             SearchClassRoomVM.Topics = topicsDB.GetTopics(currentConnection);
                             SearchClassRoomVM.States = statesDB.GetStates(currentConnection);
                             SearchClassRoomVM.Blocks = blockDB.GetBlocks(currentConnection);
+
+                            #region LoadClassrooms
+                            ClassRoomsDB classRoomsDB = new ClassRoomsDB();
+                            SearchClassRoomVM.ClassRooms = classRoomsDB.LoadClassRooms(currentConnection);
+                            #endregion
+
+
+
+                            
 
 
                             UserVM.CurrentChildren = AdminHomeVM;

@@ -6,14 +6,14 @@
              xmlns:local="clr-namespace:UMS.Views"
              mc:Ignorable="d" 
              d:DesignHeight="605" d:DesignWidth="954">
-    <UserControl.Resources>
-        <CollectionViewSource x:Key="listRequests"                               
+    <!--<UserControl.Resources>
+        <CollectionViewSource x:Key="listRequests"                            
                       Source="{Binding Requests}">
             <CollectionViewSource.GroupDescriptions>
                 <PropertyGroupDescription PropertyName="Status" />
             </CollectionViewSource.GroupDescriptions>
         </CollectionViewSource>
-    </UserControl.Resources>
+    </UserControl.Resources>-->
 
     <Grid>
 
@@ -43,7 +43,7 @@
 
 
             <ListView Name="RequestsList" Grid.Column="0" Margin="20" 
-                      ItemsSource="{Binding Source={StaticResource listRequests}}" 
+                     
                       Background="Transparent" 
                       MouseLeftButtonUp="RequestsList_MouseLeftButtonUp"
                       Foreground="{StaticResource text}">

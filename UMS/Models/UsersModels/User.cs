@@ -8,12 +8,12 @@ namespace UMS.Models.UsersModels
 {
     internal class User
     {
-        private readonly string _document;
+        private string _document;
         private readonly string _name;
         private readonly string _email;
         private readonly string _password;
 
-        public string Document => _document;
+        
 
         public string Name => _name;
 
@@ -21,12 +21,18 @@ namespace UMS.Models.UsersModels
 
         public string Password => _password;
 
+        public string Document { get => _document; set => _document = value; }
+
         public User(string document, string name, string email, string password)
         {
-            _document = document;
+            Document = document;
             _name = name;
             _email = email;
             _password = password;
+        }
+        public User() 
+        {
+
         }
 
     }

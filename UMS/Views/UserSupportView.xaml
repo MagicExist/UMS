@@ -96,7 +96,7 @@
 
                     <TextBox Grid.Column="1"
                          Text="{Binding TxtBoxSubject, Mode=TwoWay}"
-                         Name="subject" 
+                         Name="Subject" 
                          Background="{StaticResource background-textbox}"/>
 
                 </Grid>
@@ -116,7 +116,9 @@
 
                 <StackPanel Orientation="Horizontal" Margin="0 30" HorizontalAlignment="Right">
 
-                    <Button Content="Enviar Petición" 
+                    <Button Name="BtnEnviar"
+                            Content="Enviar Petición" 
+                            Click="BtnEnviar_Click"
                             Command="{Binding sendRequest}"
                             Background="{StaticResource accept-button}"
                             Style="{StaticResource Text-Button}"/>
@@ -126,6 +128,7 @@
                             Background="{StaticResource cancel-button}"
                             Style="{StaticResource Text-Button}"
                             Margin="20 0 0 0"/>
+                    <TextBlock Text="{Binding TxtBoxCurrentDocument,Mode=TwoWay}" Visibility="Collapsed" Name="CurrentDocument"/>
 
                 </StackPanel>
 

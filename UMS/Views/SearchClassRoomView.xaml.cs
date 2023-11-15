@@ -23,6 +23,7 @@ namespace UMS.Views
     {
         public ClassRoom SelectedClassRoom { get; set; }
 
+        
         public SearchClassRoomView()
         {
             InitializeComponent();

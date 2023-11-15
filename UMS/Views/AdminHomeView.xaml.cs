@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UMS.Models;
 using UMS.Models.ModelsDB;
+using UMS.Models.UsersModels;
 
 namespace UMS.Views
 {
@@ -29,6 +31,9 @@ namespace UMS.Views
             Professor = 2,
             Student = 3
         }
+        private User _currentUser;
+        private ObservableCollection<Request> Requests;
+        private CollectionView view;
         public Request SelectedRequest { get; set; }
 
         public AdminHomeView()
@@ -39,6 +44,22 @@ namespace UMS.Views
             CancelButton.Visibility = Visibility.Collapsed;
             SendRequestButton.Visibility = Visibility.Collapsed;
             ReplyRequests.Visibility = Visibility.Collapsed;
+
+
+
+            #region LoadScheduler
+            _currentUser = new User() {Document = "1025884381" };
+            OpenDbConnection openDbConnection = new OpenDbConnection();
+            RequestDB requestDB = new RequestDB();
+            SqlConnection currentConnection = openDbConnection.openConnection();
+            Requests = requestDB.loadRequest(currentConnection, _currentUser, 1);
+            currentConnection.Close();
+            #endregion
+            RequestsList.ItemsSource = Requests;
+            view = (CollectionView)CollectionViewSource.GetDefaultView(RequestsList.ItemsSource);
+            PropertyGroupDescription groupNations = new PropertyGroupDescription("Status");
+            view.GroupDescriptions.Add(groupNations);
+            RequestsList.ItemsSource = view;
         }
 
         /// <summary>
@@ -91,8 +112,8 @@ namespace UMS.Views
             ReplyRequestsView.Text = SelectedRequest.Reply;
             SelectedRequest.Status = "Respondida";
             SqlConnection currentConnection = openDbConnection.openConnection();
-
             requestUpdateDB.UpdateRequest(currentConnection,SelectedRequest);
+            
 
             ReplyView.Visibility = Visibility.Visible;
             SendButton.Visibility = Visibility.Collapsed;
@@ -100,6 +121,19 @@ namespace UMS.Views
             SendRequestButton.Visibility = Visibility.Collapsed;
             ReplyRequests.Visibility = Visibility.Collapsed;
 
+            #region LoadScheduler
+            _currentUser = new User() { Document = "1025884381" };
+            RequestDB requestDB = new RequestDB();
+            Requests = requestDB.loadRequest(currentConnection, _currentUser, 1);
+            currentConnection.Close();
+            #endregion
+            RequestsList.ItemsSource = Requests;
+            view = (CollectionView)CollectionViewSource.GetDefaultView(RequestsList.ItemsSource);
+            PropertyGroupDescription groupNations = new PropertyGroupDescription("Status");
+            view.GroupDescriptions.Add(groupNations);
+            RequestsList.ItemsSource = view;
+
+            RequestsList.ItemsSource = view;
         }
 
         /// <summary>

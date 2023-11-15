@@ -30,6 +30,13 @@ namespace UMS.ViewModels
         #region variables for interface management
         private string _txtBoxSubject;
         private string _txtBoxDetails;
+        private string _txtBoxCurrentDocument;
+
+        public string TxtBoxCurrentDocument
+        {
+            get { return _txtBoxCurrentDocument; }
+            set { _txtBoxCurrentDocument = value; OnpropertyChanged(); }
+        }
 
         public string TxtBoxSubject 
         {
@@ -98,6 +105,8 @@ namespace UMS.ViewModels
 			newRequest = new RelayCommand(MakeRequest);
 			cancelRequest = new RelayCommand(CancelRequest);
 			sendRequest = new RelayCommand(SendRequest);
+
+
         }
 
         #region Execute Methods
@@ -141,12 +150,7 @@ namespace UMS.ViewModels
         {
 
             // The register is saved to the database and the list of requests is updated.
-            RequestInsertDB requestInsertDB = new RequestInsertDB();
-            OpenDbConnection openDbConnection = new OpenDbConnection();
-            SqlConnection currentConnection = openDbConnection.openConnection();
-            Request currentRequest = new Request() {Subject = TxtBoxSubject, Details = TxtBoxDetails };
-
-            requestInsertDB.InsertRequest(currentConnection,currentRequest,CurrentUser);
+            
 
             ListRequestVisibility = Visibility.Visible;
             NewRequestVisibility = Visibility.Collapsed;

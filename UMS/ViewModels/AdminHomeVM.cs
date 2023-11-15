@@ -109,6 +109,7 @@ namespace UMS.ViewModels
             RequestDB requestDB = new RequestDB();
             SqlConnection currentConnection = openDbConnection.openConnection();
             Requests = requestDB.loadRequest(currentConnection, CurrentUser, CurrentUserType);
+            currentConnection.Close();
             #endregion
         }
 
@@ -118,7 +119,8 @@ namespace UMS.ViewModels
             OpenDbConnection openDbConnection = new OpenDbConnection();
             RequestDB requestDB = new RequestDB();
             SqlConnection currentConnection = openDbConnection.openConnection();
-            _requests = requestDB.loadRequest(currentConnection, currentUser,currentUserType);
+            Requests = requestDB.loadRequest(currentConnection, currentUser,currentUserType);
+            currentConnection.Close();
             #endregion
         }
 
