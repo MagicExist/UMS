@@ -84,10 +84,7 @@ namespace UMS.ViewModels
         #endregion
 
         #region commands
-
-        public RelayCommand ReplyCommand { get; set; }
         public RelayCommand SendRequestCommand { get; set; }
-        public RelayCommand CancelReplyCommand { get; set; }
         #endregion
 
         public AdminHomeVM()
@@ -99,9 +96,7 @@ namespace UMS.ViewModels
             ReplyTextBoxVisibility= Visibility.Collapsed;
 
 
-            ReplyCommand = new RelayCommand(MakeReply);
             SendRequestCommand = new RelayCommand(SendRequestMethod);
-            CancelReplyCommand = new RelayCommand(CancelReply);
 
         }
 
@@ -125,30 +120,6 @@ namespace UMS.ViewModels
             SqlConnection currentConnection = openDbConnection.openConnection();
             _requests = requestDB.loadRequest(currentConnection, currentUser,currentUserType);
             #endregion
-        }
-
-        /// <summary>
-        /// Initiates the reply process
-        /// </summary>
-        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
-        public void MakeReply(object parameter) 
-        {
-            ReplyButtonVisibility = Visibility.Collapsed;
-            SendButtonVisibility = Visibility.Visible;
-            CancelButtonVisibility = Visibility.Visible;
-            ReplyTextBoxVisibility = Visibility.Visible;
-        }
-
-        /// <summary>
-        /// Cancels the reply process, discards changes, and reverts to the initial state.
-        /// </summary>
-        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
-        public void CancelReply(object parameter)
-        {
-            ReplyButtonVisibility = Visibility.Visible;
-            SendButtonVisibility = Visibility.Collapsed;
-            CancelButtonVisibility = Visibility.Collapsed;
-            ReplyTextBoxVisibility = Visibility.Collapsed;
         }
 
         #endregion 

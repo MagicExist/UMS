@@ -34,6 +34,11 @@ namespace UMS.Views
         public AdminHomeView()
         {
             InitializeComponent();
+            ReplyView.Visibility = Visibility.Collapsed;
+            SendButton.Visibility = Visibility.Collapsed;
+            CancelButton.Visibility = Visibility.Collapsed;
+            SendRequestButton.Visibility = Visibility.Collapsed;
+            ReplyRequests.Visibility = Visibility.Collapsed;
         }
 
         /// <summary>
@@ -54,16 +59,21 @@ namespace UMS.Views
                 UserTypeRequests.Text = SelectedRequest.UserType;
                 ReplyRequestsView.Text = SelectedRequest.Reply;
 
-
                 if (SelectedRequest.Status == "Respondida")
                 {
                     ReplyView.Visibility = Visibility.Visible;
                     SendButton.Visibility = Visibility.Collapsed;
+                    CancelButton.Visibility = Visibility.Collapsed;
+                    SendRequestButton.Visibility = Visibility.Collapsed;
+                    ReplyRequests.Visibility = Visibility.Collapsed;
                 }
                 else 
                 {
                     ReplyView.Visibility = Visibility.Collapsed;
                     SendButton.Visibility = Visibility.Visible;
+                    CancelButton.Visibility = Visibility.Collapsed;
+                    SendRequestButton.Visibility = Visibility.Collapsed;
+                    ReplyRequests.Visibility = Visibility.Collapsed;
                 }
 
 
@@ -91,5 +101,32 @@ namespace UMS.Views
             ReplyRequests.Visibility = Visibility.Collapsed;
 
         }
+
+        /// <summary>
+        /// Initiates the reply process
+        /// </summary>
+        /// <param name="sender">The object that raised the event.</param>
+        /// <param name="e">Contains event data</param>
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            SendButton.Visibility = Visibility.Collapsed;
+            CancelButton.Visibility = Visibility.Visible;
+            SendRequestButton.Visibility = Visibility.Visible;
+            ReplyRequests.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>
+        /// Cancels the reply process, discards changes, and reverts to the initial state.
+        /// </summary>
+        /// <param name="sender">The object that raised the event.</param>
+        /// <param name="e">Contains event data</param>
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            SendButton.Visibility = Visibility.Visible;
+            CancelButton.Visibility = Visibility.Collapsed;
+            SendRequestButton.Visibility = Visibility.Collapsed;
+            ReplyRequests.Visibility = Visibility.Collapsed;
+        }
     }
+
 }
