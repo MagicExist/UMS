@@ -16,6 +16,11 @@ namespace UMS.Models.ModelsDB
         private List<string> topics;
         private string query;
 
+        /// <summary>
+        /// Perform a database query to bring up all the topics that the salons have.
+        /// </summary>
+        /// <param name="currentConnection">The SqlConnection object representing the current database connection.</param>
+        /// <returns>returns a list of the total Topics among all the salons in the database</returns>
         public List<string> GetTopics(SqlConnection currentConnection)
         {
             topics = new List<string>();

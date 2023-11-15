@@ -24,6 +24,7 @@ namespace UMS.ViewModels
 
         internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
 
+
         public void OnLoginAllowSub(object newView,User currentUser) 
         {
             currentView = newView;

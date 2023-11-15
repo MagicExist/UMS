@@ -106,6 +106,12 @@ namespace UMS.ViewModels
             }
         }
 
+        /// <summary>
+        /// Navigation method for the user support functionality.
+        /// Loads requests from the store based on the current user and user type.
+        /// Sets the CurrentChildren property based on the user type for further navigation.
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         public void UserSupportNavMethod(object parameter)
         {
             LoadRequestStore.OnLoadRequestInvoke(CurrentUser,CurrentUserType);
@@ -120,6 +126,10 @@ namespace UMS.ViewModels
             }
         }
 
+        /// <summary>
+        /// Sets the CurrentChildren property to the SearchClassRoomVM for sidebar navigation.
+        /// </summary>
+        /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         public void SearchClassRoomNavMethod(object parameter)
         {
             CurrentChildren = SearchClassRoomVM;

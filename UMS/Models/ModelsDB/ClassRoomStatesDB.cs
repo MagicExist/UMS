@@ -16,6 +16,11 @@ namespace UMS.Models.ModelsDB
         private List<string> states;
         private string query;
 
+        /// <summary>
+        /// Performs a query to the database to fetch all the statuses that the classrooms have.
+        /// </summary>
+        /// <param name="currentConnection">The SqlConnection object representing the current database connection.</param>
+        /// <returns>returns a list of the total statuses among all the salons in the database</returns>
         public List<string> GetStates(SqlConnection currentConnection)
         {
             states = new List<string>();

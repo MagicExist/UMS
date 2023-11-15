@@ -15,7 +15,11 @@ namespace UMS.Models.ModelsDB
         private string query;
 
 
-
+        /// <summary>
+        /// Loads a list of ClassRoom objects from the "Salones" table in the database.
+        /// </summary>
+        /// <param name="currentConnection">The SqlConnection object representing the current database connection.</param>
+        /// <returns>A List of ClassRoom objects containing information about classrooms.</returns>
         public List<ClassRoom> LoadClassRooms(SqlConnection currentConnection)
         {
             listClassroom = new List<ClassRoom>();

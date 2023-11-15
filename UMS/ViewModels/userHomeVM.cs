@@ -132,6 +132,9 @@ namespace UMS.ViewModels
 
         #region Execute Methods
 
+        /// <summary>
+        /// Collapses visibility properties and sets TextBoxReadOnly to true for student view details mode.
+        /// </summary>
         public void studentViewDetailsCollapse() 
         {
             EditDetailsVisibility = Visibility.Collapsed;
@@ -139,6 +142,10 @@ namespace UMS.ViewModels
             CancelDetailsVisibility = Visibility.Collapsed;
             TextBoxReadOnly = true;
         }
+
+        /// <summary>
+        /// Configures visibility properties and sets TextBoxReadOnly to false for professor view details mode.
+        /// </summary>
         public void professorViewDetailsCollapse()
         {
             EditDetailsVisibility = Visibility.Visible;
@@ -147,6 +154,10 @@ namespace UMS.ViewModels
             TextBoxReadOnly = false;
         }
 
+        /// <summary>
+        /// Loads classes into the scheduler based on the current user and user type.
+        /// </summary>
+        /// <param name="currentUser">The user currently in the program</param>
         public void loadEscheduler(User currentUser) 
         {
             #region LoadScheduler

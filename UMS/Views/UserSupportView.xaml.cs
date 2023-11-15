@@ -33,6 +33,11 @@ namespace UMS.Views
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Creates a new User, inserts a new Request into the database, loads requests, and updates the UserRequestsList.
+        /// </summary>
+        /// <param name="sender">The object that raised the event.</param>
+        /// <param name="e">containing event data.</param>
         private void BtnEnviar_Click(object sender, RoutedEventArgs e)
         {
             currentUser = new User() { Document = CurrentDocument.Text };

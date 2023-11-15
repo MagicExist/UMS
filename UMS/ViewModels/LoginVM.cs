@@ -51,9 +51,6 @@ namespace UMS.ViewModels
             get { return _labelError; }
             set { _labelError = value; OnpropertyChanged(); }
         }
-
-
-
         internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
         internal UserVM UserVM { get => _userVM; set => _userVM = value; }
         internal UserSupportVM UserSupportVM { get => _userSupportVM; set => _userSupportVM = value; }

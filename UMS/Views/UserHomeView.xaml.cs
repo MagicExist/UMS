@@ -47,6 +47,11 @@ namespace UMS.Views
             }
         }
 
+        /// <summary>
+        /// Updates the details of the selected class in the database.
+        /// </summary>
+        /// <param name="sender">The object that raised the event.</param>
+        /// <param name="e">The RoutedEventArgs containing event data.</param>
         private void btnConfirmar_Click(object sender, RoutedEventArgs e)
         {
             DetailsUpdateDB detailsUpdateDB = new DetailsUpdateDB();

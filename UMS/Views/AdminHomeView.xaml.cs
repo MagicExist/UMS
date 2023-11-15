@@ -63,7 +63,7 @@ namespace UMS.Views
         }
 
         /// <summary>
-        /// Handles the MouseLeftButtonUp event for the RequestsList.
+        /// Handles the MouseLeftButtonUp 
         /// Updates the displayed information when a request is selected.
         /// </summary>
         /// <param name="sender">The object that raised the event.</param>
@@ -101,7 +101,7 @@ namespace UMS.Views
             }
         }
         /// <summary>
-        /// sends a response to the database 
+        /// sends a response to the database and updates the view
         /// </summary>
         /// <param name="parameter">Optional parameter that can be used to pass additional information from the view.</param>
         private void SendRequestButton_Click(object sender, RoutedEventArgs e)

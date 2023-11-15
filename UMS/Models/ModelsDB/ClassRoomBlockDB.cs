@@ -16,6 +16,11 @@ namespace UMS.Models.ModelsDB
         private List<string> blocks;
         private string query;
 
+        /// <summary>
+        ///  Performs a database query to fetch all blocks that have salons
+        /// </summary>
+        /// <param name="currentConnection">The SqlConnection object representing the current database connection.</param>
+        /// <returns>returns a list of the blocks in which each classroom is located</returns>
         public List<string> GetBlocks(SqlConnection currentConnection)
         {
             blocks = new List<string>();

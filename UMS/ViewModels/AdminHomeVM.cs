@@ -102,6 +102,10 @@ namespace UMS.ViewModels
 
         #region execute Methods
 
+        /// <summary>
+        /// Loads user requests from the database and updates the Requests property.
+        /// </summary>
+        /// <param name="paremeter">Optional parameter that can be used to pass additional information from the view.</param>
         public void SendRequestMethod(object paremeter) 
         {
             #region LoadScheduler
@@ -113,6 +117,12 @@ namespace UMS.ViewModels
             #endregion
         }
 
+        /// <summary>
+        /// Opens a new database connection, loads user requests based on the provided user and user type,
+        /// and updates the Requests property. Closes the database connection after loading.
+        /// </summary>
+        /// <param name="currentUser">The user currently in the program</param>
+        /// <param name="currentUserType">The type of user currently in the program</param>
         public void OnLoadRequestSub(User currentUser,int currentUserType)
         {
             #region LoadScheduler
