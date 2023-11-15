@@ -9,6 +9,7 @@ using UMS.Core;
 using UMS.Models;
 using UMS.Models.ModelsDB;
 using UMS.Models.UsersModels;
+using UMS.Views;
 
 namespace UMS.ViewModels
 {
@@ -27,6 +28,9 @@ namespace UMS.ViewModels
                 AdminName = _currentUser.Name;
             }
         }
+        public AdminHomeView View { get; set; }
+
+
 
         public string AdminName { get { return _adminName; } set { _adminName = value; OnpropertyChanged(); } }
 
@@ -85,6 +89,7 @@ namespace UMS.ViewModels
 
         public AdminHomeVM()
         {
+
 
             SendButtonVisibility= Visibility.Collapsed;
             CancelButtonVisibility= Visibility.Collapsed;

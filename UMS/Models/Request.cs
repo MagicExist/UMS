@@ -16,6 +16,7 @@ namespace UMS.Models
         string _userType;
         string _userDocument;
         string _reply;
+        int _id;
 
         public string Date { get => _date; }
         public string Subject { get => _subject; }
@@ -25,8 +26,9 @@ namespace UMS.Models
         public string UserType { get => _userType;}
         public string UserDocument { get => _userDocument; }
         public string Reply { get => _reply; }
+        public int Id { get => _id;}
 
-        public Request(string admin, string userType,string userDocument,string subject,string details,string status, string date, string reply)
+        public Request(string admin, string userType, string userDocument, string subject, string details, string status, string date, string reply, int id)
         {
             _date = date;
             _subject = subject;
@@ -36,6 +38,8 @@ namespace UMS.Models
             _userType = userType;
             _userDocument = userDocument;
             _reply = reply;
+            _id = id;
+        }
         }
 
 
