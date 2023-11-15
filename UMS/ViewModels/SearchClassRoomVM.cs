@@ -14,14 +14,21 @@ namespace UMS.ViewModels
         #region variables for interface management
 
         // Lists for comboBoxes 
-        List<string> days = new List<string> { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
-        public List<string> Days { get => days; }
+        List<string> days = new List<string>();
+        public List<string> Days { get => days; set => days = value; }
 
-        List<string> startHours = new List<string> {"6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" };
-        public List<string> StartHours { get => startHours; }
+        List<string> topics = new List<string>();
+        public List<string> Topics { get => topics; set => topics = value; }
 
-        List<string> endtHours = new List<string> {"7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", };
-        public List<string> EndHours { get => endtHours; }
+        List<string> states = new List<string>();
+        public List<string> States { get => states; set => states = value; }
+
+        List<string> blocks = new List<string>();
+        public List<string> Blocks { get => blocks; set => blocks = value; }
+
+        List<string> hours = new List<string> {"6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" };
+        public List<string> Hours { get => hours; }
+
 
         // List to store classrooms
         List<ClassRoom> _classRooms = new List<ClassRoom>();
@@ -47,6 +54,7 @@ namespace UMS.ViewModels
         #region commands
         public RelayCommand AdvancedSearchCommand { get; set; }
         
+
         #endregion
 
         public SearchClassRoomVM()
