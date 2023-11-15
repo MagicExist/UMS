@@ -70,6 +70,11 @@ namespace UMS.ViewModels
                 {
                     OpenDbConnection openDbConnection = new OpenDbConnection();
                     LoginDB loginDB = new LoginDB();
+                    DaysDB daysDB = new DaysDB();
+                    ClassRoomTopicsDB topicsDB = new ClassRoomTopicsDB();
+                    ClassRoomStatesDB statesDB = new ClassRoomStatesDB();
+                    ClassRoomBlockDB blockDB = new ClassRoomBlockDB();
+
                     SqlConnection currentConnection = openDbConnection.openConnection();
                     (User currentUser, int type) = loginDB.allowLogin(currentConnection, TxtBoxUser, TxtBoxPassword);
 
@@ -101,6 +106,11 @@ namespace UMS.ViewModels
                             break;
                         case userType.Admin:
                             AdminHomeVM.CurrentUser = currentUser;
+                            SearchClassRoomVM.Days = daysDB.GetDays(currentConnection);
+                            SearchClassRoomVM.Topics = topicsDB.GetTopics(currentConnection);
+                            SearchClassRoomVM.States = statesDB.GetStates(currentConnection);
+                            SearchClassRoomVM.Blocks = blockDB.GetBlocks(currentConnection);
+
 
                             UserVM.CurrentChildren = AdminHomeVM;
                             UserVM.CurrentUserType = type;
