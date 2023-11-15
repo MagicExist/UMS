@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UMS.Models;
+using UMS.Models.ModelsDB;
 
 namespace UMS.Views
 {
@@ -43,6 +45,16 @@ namespace UMS.Views
                 classroom.Text = SelectedClass.IdClassRoom;
                 detailClass.Text = SelectedClass.Details;
             }
+        }
+
+        private void btnConfirmar_Click(object sender, RoutedEventArgs e)
+        {
+            DetailsUpdateDB detailsUpdateDB = new DetailsUpdateDB();
+            OpenDbConnection openDbConnection = new OpenDbConnection();
+            SelectedClass.Details = detailClass.Text;
+            SqlConnection currentConnection = openDbConnection.openConnection();
+
+            detailsUpdateDB.InsertDetail(currentConnection, SelectedClass);
         }
     }
 }

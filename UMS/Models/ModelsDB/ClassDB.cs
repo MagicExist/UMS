@@ -57,7 +57,8 @@ namespace UMS.Models.ModelsDB
                         "Id_Grupo," +
                         "Codigo_Salon," +
                         "(select Nombre from Asignaturas where Codigo = Clases.Codigo_Asignatura) as asignatura, " +
-                        "Detalles " +
+                        "Detalles," +
+                        "Id " +
                         "from Clases " +
                         "where Id_Grupo in (select IdGrupo from GruposEstudiantes where IdEstudiante = @IdCurrentUser)";
                     break;
@@ -69,7 +70,8 @@ namespace UMS.Models.ModelsDB
                         "Id_Grupo," +
                         "Codigo_Salon," +
                         "(select Nombre from Asignaturas where Codigo = Clases.Codigo_Asignatura) as asignatura, " +
-                        "Detalles " +
+                        "Detalles," +
+                        "Id " +
                         "from Clases " +
                         "where Id_Grupo in (select IdGrupo from Grupos where IdProfesor = @IdCurrentUser)";
                     break;
@@ -112,7 +114,8 @@ namespace UMS.Models.ModelsDB
                             _reader.GetString(3),
                             _reader.GetString(4),
                             _reader.GetString(5),
-                            _reader.GetString(6)
+                            _reader.GetString(6),
+                            _reader.GetInt32(7)
                         ));
                 }
             }
