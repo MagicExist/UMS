@@ -23,7 +23,14 @@ namespace UMS.Models.ModelsDB
         private ObservableCollection<Request> _listRequest;
         private string query;
         private string userRequestType;
-   
+
+        /// <summary>
+        /// Retrieves a collection of requests based on the user's type and ID.
+        /// </summary>
+        /// <param name="currentConnection">The SqlConnection object representing the database connection.</param>
+        /// <param name="currentUser">The User object representing the current user.</param>
+        /// <param name="currentUserType">The type of the current user.</param>
+        /// <returns>An ObservableCollection of Request objects.</returns>
         public ObservableCollection<Request> loadRequest(SqlConnection currentConnection, User currentUser,int currentUserType)
         {
             _listRequest = new ObservableCollection<Request>();
@@ -92,10 +99,6 @@ namespace UMS.Models.ModelsDB
                             _reader.GetInt16(2)
                         ));
                 }
-            }
-            else
-            {
-
             }
             return _listRequest;
         }

@@ -15,6 +15,11 @@ namespace UMS.Models.ModelsDB
         private SqlDataReader _reader;
         private string query;
 
+        /// <summary>
+        /// Updates the details of a class in the database.
+        /// </summary>
+        /// <param name="currentConnection">The SqlConnection object representing the database connection.</param>
+        /// <param name="currentRequest">The Class object containing the updated information.</param>
         public void InsertDetail(SqlConnection currentConnection, Class currentRequest)
         {
                 query = "update Clases set Detalles = @currentDetail where Id = @currentId";

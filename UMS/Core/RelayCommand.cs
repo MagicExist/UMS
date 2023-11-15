@@ -26,11 +26,20 @@ namespace UMS.Core
             _canExecute = null;
         }
 
+        /// <summary>
+        /// Determines whether the command can execute.
+        /// </summary>
+        /// <param name="parameter">The parameter for the command.</param>
+        /// <returns>True if the command can execute, otherwise false.</returns>
         public bool CanExecute(object? parameter)
         {
             return _canExecute == null ? true : _canExecute(parameter);
         }
 
+        /// <summary>
+        /// Executes the command.
+        /// </summary>
+        /// <param name="parameter">The parameter for the command.</param>
         public void Execute(object? parameter)
         {
             _execute(parameter);

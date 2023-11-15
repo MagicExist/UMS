@@ -38,6 +38,11 @@ namespace UMS.Resources.Components
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the PasswordChanged event of the inner PasswordBox.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">The event arguments.</param>
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             Password = passwordBox.Password;
