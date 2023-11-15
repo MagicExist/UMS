@@ -16,6 +16,11 @@ namespace UMS.ViewModels
 
         private LoginStore _loginStore;
 
+        private UserVM _userVM;
+        private LoginVM _loginVM;
+
+        public RelayCommand LogOutCommand { get; set; }
+
         public object currentView 
         {
             get { return _currentView; }
@@ -23,6 +28,9 @@ namespace UMS.ViewModels
         }
 
         internal LoginStore LoginStore { get => _loginStore; set => _loginStore = value; }
+        internal UserVM UserVM { get => _userVM; set => _userVM = value; }
+        internal LoginVM LoginVM { get => _loginVM; set => _loginVM = value; }
+        
 
         public void OnLoginAllowSub(object newView,User currentUser) 
         {
@@ -31,7 +39,13 @@ namespace UMS.ViewModels
 
         public MainVM()
         {
-            
+            LogOutCommand = new RelayCommand(LogOutMethod);
+        }
+
+        public void LogOutMethod(object parameter) 
+        {
+            UserVM.CurrentChildren = LoginVM;
+            currentView = UserVM;
         }
     }
 }

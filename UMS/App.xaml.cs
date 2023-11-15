@@ -55,6 +55,8 @@ namespace UMS
 
             mainVM.LoginStore = loginStore;
             mainVM.currentView = loginVM;
+            mainVM.UserVM = userVM;
+            mainVM.LoginVM = loginVM;
             
 
             MainWindow MainWindow = new MainWindow()
