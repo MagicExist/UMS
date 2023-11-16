@@ -48,8 +48,7 @@ namespace UMS.ViewModels
 
         public void LogOutMethod(object parameter) 
         {
-            UserVM.CurrentChildren = LoginVM;
-            currentView = UserVM;
+            currentView = LoginVM;
         }
     }
 }

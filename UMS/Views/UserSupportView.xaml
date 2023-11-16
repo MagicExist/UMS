@@ -128,11 +128,12 @@
                             Background="{StaticResource cancel-button}"
                             Style="{StaticResource Text-Button}"
                             Margin="20 0 0 0"/>
-                    <TextBlock Text="{Binding TxtBoxCurrentDocument,Mode=TwoWay}" Visibility="Collapsed" Name="CurrentDocument"/>
-
+                    
                 </StackPanel>
 
             </StackPanel>
+
+            <TextBlock Text="{Binding TxtBoxCurrentDocument,Mode=TwoWay}" Visibility="Collapsed" Name="CurrentDocument"/>
 
         </Grid>
     </ScrollViewer>
