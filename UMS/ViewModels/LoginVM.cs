@@ -91,6 +91,7 @@ namespace UMS.ViewModels
                             UserHomeVM.CurrentUser = currentUser;
 
                             UserSupportVM.CurrentUser = currentUser;
+                            UserSupportVM.TxtBoxCurrentDocument = currentUser.Document;
 
                             UserVM.CurrentChildren = UserHomeVM;
                             UserVM.CurrentUserType = type;
